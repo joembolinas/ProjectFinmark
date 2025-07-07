@@ -1,0 +1,133 @@
+{
+  "validationSummary": {
+    "timestamp": "2025-07-07T06:56:17.623Z",
+    "testDuration": "~5 minutes",
+    "overallStatus": "FAILED",
+    "ciscoTopologyAdopted": true
+  },
+  "detailedResults": {
+    "topologyValidation": {
+      "totalDevices": 20,
+      "totalConnections": 20,
+      "deviceTypes": {
+        "cloud": 1,
+        "firewall": 1,
+        "switch": 6,
+        "client": 4,
+        "server": 7,
+        "load-balancer": 1
+      },
+      "vlanCoverage": 5,
+      "securityZones": 7,
+      "redundancy": {
+        "databaseRedundancy": true,
+        "webServerRedundancy": true,
+        "loadBalancer": true
+      }
+    },
+    "connectivityTests": {},
+    "vlanSegmentation": {
+      "vlanTests": [
+        {
+          "vlanId": 10,
+          "packetCount": 0,
+          "avgLatency": 0,
+          "qosClasses": {},
+          "segmentationEffective": false
+        },
+        {
+          "vlanId": 20,
+          "packetCount": 0,
+          "avgLatency": 0,
+          "qosClasses": {},
+          "segmentationEffective": false
+        },
+        {
+          "vlanId": 30,
+          "packetCount": 0,
+          "avgLatency": 0,
+          "qosClasses": {},
+          "segmentationEffective": false
+        },
+        {
+          "vlanId": 40,
+          "packetCount": 0,
+          "avgLatency": 0,
+          "qosClasses": {},
+          "segmentationEffective": false
+        },
+        {
+          "vlanId": 50,
+          "packetCount": 0,
+          "avgLatency": 0,
+          "qosClasses": {},
+          "segmentationEffective": false
+        }
+      ],
+      "isolationEffective": false,
+      "totalVlansTest": 5
+    },
+    "qosValidation": {
+      "classes": {},
+      "overallPerformance": true,
+      "prioritizationWorking": false
+    },
+    "securityTests": {
+      "policies": {
+        "VLAN_10_Finance": {
+          "securityLevel": "high",
+          "accessControlDefined": true,
+          "timeRestrictionsSet": true,
+          "authenticationRequired": false,
+          "vlanIsolation": true
+        },
+        "VLAN_20_HR": {
+          "securityLevel": "medium",
+          "accessControlDefined": true,
+          "timeRestrictionsSet": true,
+          "authenticationRequired": false,
+          "vlanIsolation": true
+        },
+        "VLAN_30_Operations": {
+          "securityLevel": "medium",
+          "accessControlDefined": true,
+          "timeRestrictionsSet": true,
+          "authenticationRequired": false,
+          "vlanIsolation": true
+        },
+        "VLAN_40_IT_DB": {
+          "securityLevel": "maximum",
+          "accessControlDefined": true,
+          "timeRestrictionsSet": true,
+          "authenticationRequired": true,
+          "vlanIsolation": true
+        },
+        "VLAN_50_DMZ": {
+          "securityLevel": "low",
+          "accessControlDefined": true,
+          "timeRestrictionsSet": true,
+          "authenticationRequired": false,
+          "vlanIsolation": true
+        }
+      },
+      "allVlansSecured": true,
+      "isolationImplemented": true
+    },
+    "performanceMetrics": {
+      "totalPacketsProcessed": 0,
+      "averageLatency": null,
+      "packetLossRate": null,
+      "throughput": 0,
+      "loadHandling": "Poor"
+    }
+  },
+  "recommendations": [
+    "Review VLAN isolation rules to prevent unauthorized inter-VLAN communication"
+  ],
+  "ciscoAlignment": {
+    "vlanImplementation": "Fully aligned with Cisco Packet Tracer design",
+    "qosConfiguration": "Enterprise-grade QoS with DSCP marking",
+    "securityZones": "Multi-tier security architecture implemented",
+    "redundancy": "High availability with load balancing and database clustering"
+  }
+}

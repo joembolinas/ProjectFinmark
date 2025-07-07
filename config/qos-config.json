@@ -1,0 +1,134 @@
+{
+  "qosClasses": {
+    "voice": {
+      "priority": 1,
+      "bandwidth": "30%",
+      "latency": "1ms",
+      "jitter": "0.5ms",
+      "protocols": ["RTP", "SIP"],
+      "ports": [5060, 5061, "16384-32767"]
+    },
+    "video": {
+      "priority": 2,
+      "bandwidth": "25%",
+      "latency": "5ms",
+      "jitter": "2ms",
+      "protocols": ["H.264", "RTP"],
+      "ports": [1720, 5004, 5005]
+    },
+    "critical_data": {
+      "priority": 3,
+      "bandwidth": "20%",
+      "latency": "10ms",
+      "protocols": ["HTTPS", "SSH", "LDAP"],
+      "ports": [443, 22, 389, 636],
+      "vlans": [40, 10]
+    },
+    "business_data": {
+      "priority": 4,
+      "bandwidth": "15%",
+      "latency": "50ms",
+      "protocols": ["HTTP", "SMTP", "POP3", "IMAP"],
+      "ports": [80, 25, 110, 143, 993, 995],
+      "vlans": [10, 20, 30]
+    },
+    "default": {
+      "priority": 5,
+      "bandwidth": "10%",
+      "latency": "100ms",
+      "protocols": ["*"],
+      "ports": ["*"]
+    }
+  },
+  "vlanPolicies": {
+    "VLAN_10_Finance": {
+      "defaultClass": "critical_data",
+      "allowedClasses": ["voice", "critical_data", "business_data"],
+      "securityLevel": "high",
+      "accessControl": {
+        "allowedVlans": [40, 50],
+        "deniedVlans": [20, 30],
+        "timeRestrictions": "business_hours"
+      }
+    },
+    "VLAN_20_HR": {
+      "defaultClass": "business_data",
+      "allowedClasses": ["voice", "business_data"],
+      "securityLevel": "medium",
+      "accessControl": {
+        "allowedVlans": [50],
+        "deniedVlans": [10, 30, 40],
+        "timeRestrictions": "business_hours"
+      }
+    },
+    "VLAN_30_Operations": {
+      "defaultClass": "business_data",
+      "allowedClasses": ["voice", "business_data", "default"],
+      "securityLevel": "medium",
+      "accessControl": {
+        "allowedVlans": [50],
+        "deniedVlans": [10, 20, 40],
+        "timeRestrictions": "24x7"
+      }
+    },
+    "VLAN_40_IT_DB": {
+      "defaultClass": "critical_data",
+      "allowedClasses": ["critical_data"],
+      "securityLevel": "maximum",
+      "accessControl": {
+        "allowedVlans": [10],
+        "deniedVlans": [20, 30, 50],
+        "timeRestrictions": "admin_hours",
+        "requiredAuthentication": true
+      }
+    },
+    "VLAN_50_DMZ": {
+      "defaultClass": "business_data",
+      "allowedClasses": ["business_data", "default"],
+      "securityLevel": "low",
+      "accessControl": {
+        "allowedVlans": ["internet"],
+        "deniedVlans": [10, 20, 30, 40],
+        "timeRestrictions": "24x7"
+      }
+    }
+  },
+  "bandwidthAllocation": {
+    "interfaces": {
+      "core_uplink": {
+        "totalBandwidth": "1Gbps",
+        "allocation": {
+          "voice": "300Mbps",
+          "video": "250Mbps",
+          "critical_data": "200Mbps",
+          "business_data": "150Mbps",
+          "default": "100Mbps"
+        }
+      },
+      "department_links": {
+        "totalBandwidth": "100Mbps",
+        "allocation": {
+          "voice": "30Mbps",
+          "video": "25Mbps",
+          "critical_data": "20Mbps",
+          "business_data": "15Mbps",
+          "default": "10Mbps"
+        }
+      }
+    }
+  },
+  "congestionControl": {
+    "wred": {
+      "enabled": true,
+      "minThreshold": 60,
+      "maxThreshold": 80,
+      "dropProbability": 10
+    },
+    "policer": {
+      "enabled": true,
+      "conform": "committed_rate",
+      "exceed": "drop",
+      "violate": "drop"
+    }
+  }
+}

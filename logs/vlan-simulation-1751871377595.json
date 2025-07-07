@@ -1,0 +1,14 @@
+{
+  "simulationInfo": {
+    "timestamp": "2025-07-07T06:56:17.596Z",
+    "duration": 10,
+    "vlans": [
+      10
+    ],
+    "totalPackets": 0,
+    "qosEnabled": true
+  },
+  "vlanStatistics": {},
+  "qosStatistics": {},
+  "packets": []
+}

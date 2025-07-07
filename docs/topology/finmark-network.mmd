@@ -1,0 +1,54 @@
+graph TB
+    %% FinMark Network Topology
+    %% Generated: 2025-07-07T06:58:11.020Z
+
+    INTERNET["Internet Cloud\ncloud\n0.0.0.0"]
+    ASA_FIREWALL["FinMark External Firewall\nfirewall\n203.0.113.1"]:::firewall
+    CORE_L3_SWITCH["Core Distribution Switch\nswitch\n10.0.0.1"]:::switch
+    SW_FINANCE["Finance Switch\nswitch\n10.0.10.1"]:::switch
+    SW_HR["HR Switch\nswitch\n10.0.20.1"]:::switch
+    SW_OPERATIONS["Operations Switch\nswitch\n10.0.30.1"]:::switch
+    SW_IT_DB["IT Database Switch\nswitch\n10.0.40.1"]:::switch
+    SW_DMZ["DMZ Switch\nswitch\n10.0.50.1"]:::switch
+    PC_FINANCE_01["Finance PC 01\nclient\n10.0.10.10"]:::client
+    PC_FINANCE_02["Finance PC 02\nclient\n10.0.10.11"]:::client
+    FINANCE_SERVER["Finance Server\nserver\n10.0.10.50"]:::server
+    PC_HR_01["HR PC 01\nclient\n10.0.20.10"]:::client
+    HR_SERVER["HR Server\nserver\n10.0.20.50"]:::server
+    PC_OPS_01["Operations PC 01\nclient\n10.0.30.10"]:::client
+    OPS_SERVER["Operations Server\nserver\n10.0.30.50"]:::server
+    DB_PRIMARY["Primary Database Server\nserver\n10.0.40.10"]:::server
+    DB_SECONDARY["Secondary Database Server\nserver\n10.0.40.11"]:::server
+    WEB_SERVER_1["Web Server 1\nserver\n10.0.50.10"]:::server
+    WEB_SERVER_2["Web Server 2\nserver\n10.0.50.11"]:::server
+    LOAD_BALANCER_VIP["Load Balancer VIP\nload-balancer\n10.0.50.20"]:::loadbalancer
+
+    %% Connections
+    INTERNET -->|"fiber\n100Mbps"| ASA_FIREWALL
+    ASA_FIREWALL -->|"ethernet\n1Gbps"| CORE_L3_SWITCH
+    CORE_L3_SWITCH -->|"trunk\n1Gbps"| SW_FINANCE
+    CORE_L3_SWITCH -->|"trunk\n1Gbps"| SW_HR
+    CORE_L3_SWITCH -->|"trunk\n1Gbps"| SW_OPERATIONS
+    CORE_L3_SWITCH -->|"trunk\n1Gbps"| SW_IT_DB
+    CORE_L3_SWITCH -->|"trunk\n1Gbps"| SW_DMZ
+    SW_FINANCE -->|"access\n100Mbps"| PC_FINANCE_01
+    SW_FINANCE -->|"access\n100Mbps"| PC_FINANCE_02
+    SW_FINANCE -->|"access\n1Gbps"| FINANCE_SERVER
+    SW_HR -->|"access\n100Mbps"| PC_HR_01
+    SW_HR -->|"access\n1Gbps"| HR_SERVER
+    SW_OPERATIONS -->|"access\n100Mbps"| PC_OPS_01
+    SW_OPERATIONS -->|"access\n1Gbps"| OPS_SERVER
+    SW_IT_DB -->|"access\n1Gbps"| DB_PRIMARY
+    SW_IT_DB -->|"access\n1Gbps"| DB_SECONDARY
+    SW_DMZ -->|"access\n1Gbps"| WEB_SERVER_1
+    SW_DMZ -->|"access\n1Gbps"| WEB_SERVER_2
+    SW_DMZ -->|"access\n1Gbps"| LOAD_BALANCER_VIP
+    DB_PRIMARY -->|"replication\n1Gbps"| DB_SECONDARY
+
+    %% Styling
+    classDef router fill:#ff6b6b,stroke:#d63031,stroke-width:2px,color:#fff
+    classDef switch fill:#74b9ff,stroke:#0984e3,stroke-width:2px,color:#fff
+    classDef firewall fill:#fd79a8,stroke:#e84393,stroke-width:2px,color:#fff
+    classDef server fill:#00b894,stroke:#00a085,stroke-width:2px,color:#fff
+    classDef client fill:#fdcb6e,stroke:#e17055,stroke-width:2px,color:#fff
+    classDef loadbalancer fill:#a29bfe,stroke:#6c5ce7,stroke-width:2px,color:#fff

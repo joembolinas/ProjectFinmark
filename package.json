@@ -1,0 +1,41 @@
+{
+  "name": "finmark-network-lab-setup",
+  "version": "1.0.0",
+  "description": "FinMark Network Lab Setup with integrated tools for network simulation, monitoring, and testing",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "npm run test:network && npm run test:load",
+    "test:network": "node tests/network-test.js",
+    "test:load": "node tests/load-test.js",
+    "setup": "node setup/install-dependencies.js",
+    "monitor": "node monitoring/network-monitor.js",
+    "traffic-gen": "node tools/traffic-generator.js",
+    "vpn-setup": "node config/vpn-setup.js",
+    "firewall-config": "node config/firewall-config.js",
+    "topology": "node tools/network-topology-generator.js",
+    "packet-capture": "node tools/packet-capture-simulator.js",
+    "simulate-finmark": "node tools/packet-capture-simulator.js && node tools/traffic-generator.js",
+    "generate-reports": "npm run packet-capture && npm run topology"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6",
+    "node-ssh": "^13.1.0",
+    "axios": "^1.5.0",
+    "ws": "^8.14.2",
+    "commander": "^11.1.0",
+    "chalk": "^4.1.2",
+    "inquirer": "^8.2.6",
+    "fs-extra": "^11.1.1",
+    "yaml": "^2.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "jest": "^29.7.0",
+    "artillery": "^2.0.1"
+  },
+  "keywords": ["network", "simulation", "security", "finmark", "cybersecurity"],
+  "author": "Network Security Team",
+  "license": "MIT"
+}

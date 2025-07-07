@@ -1,0 +1,543 @@
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>npm install
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+npm warn deprecated q@1.5.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+npm warn deprecated
+npm warn deprecated (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+npm warn deprecated read-package-json@7.0.1: This package is no longer supported. Please use @npmcli/package-json instead.
+npm warn deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
+npm warn deprecated rimraf@2.6.3: Rimraf versions prior to v4 are no longer supported
+
+added 1276 packages, and audited 1277 packages in 2m
+
+184 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>npm run setup
+
+> finmark-network-lab-setup@1.0.0 setup
+> node setup/install-dependencies.js
+
+🚀 Starting FinMark Network Lab Setup...
+
+Checking system requirements...
+✓ Node.js is installed
+node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: spawn npm ENOENT
+    at ChildProcess._handle.onexit (node:internal/child_process:285:19)
+    at onErrorNT (node:internal/child_process:483:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Emitted 'error' event on ChildProcess instance at:
+    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+    at onErrorNT (node:internal/child_process:483:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  errno: -4058,
+  code: 'ENOENT',
+  code: 'ENOENT',
+  syscall: 'spawn npm',
+  path: 'npm',
+  spawnargs: [ '--version' ]
+  spawnargs: [ '--version' ]
+}
+
+Node.js v22.16.0
+
+Node.js v22.16.0
+Node.js v22.16.0
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>npm run setup
+
+> finmark-network-lab-setup@1.0.0 setup
+> node setup/install-dependencies.js
+
+🚀 Starting FinMark Network Lab Setup...
+
+Checking system requirements...
+✓ Node.js is installed
+✓ npm is installed
+✓ PowerShell is installed
+Setting up project directories...
+✓ Created directory: config
+✓ Created directory: monitoring
+✓ Created directory: tools
+✓ Created directory: tests
+✓ Created directory: setup
+✓ Created directory: docs
+✓ Created directory: logs
+✓ Created directory: public
+✓ Created directory: certificates
+Creating configuration files...
+✓ Created network-config.json
+✓ Created qos-config.json
+? Enable Windows Firewall configuration? Yes
+? Enable real-time network monitoring? Yes
+? Server port: 3000
+? WebSocket monitoring port: 8080
+✓ Configuration updated based on user preferences
+
+✨ Setup completed successfully!
+
+Next steps:
+1. Run "npm start" to start the main server
+2. Run "npm run monitor" to start network monitoring
+3. Run "npm run traffic-gen" to generate test traffic
+4. Run "npm run firewall-config" to configure firewall rules
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>npm run topology
+
+> finmark-network-lab-setup@1.0.0 topology
+> node tools/network-topology-generator.js
+
+✓ Network topology saved to:
+  - ./docs/topology/finmark-network.mmd
+  - ./docs/topology/finmark-network.md
+  - ./config/network-topology.json
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>npm run packet-capture
+
+> finmark-network-lab-setup@1.0.0 packet-capture
+> node tools/packet-capture-simulator.js
+
+Simulating FinMark high-load scenario...
+FinMark simulation saved to: ./logs/finmark-simulation-1751864948436.json
+Analysis report generated:
+  - ./logs/analysis-1751864948443.json
+  - ./logs/analysis-1751864948443.md
+Applying filter: tcp and port 443
+Filtered HTTPS traffic: 200 packets
+Filtered HTTPS traffic: 200 packets
+Applying filter: tcp and port 8080
+Applying filter: tcp and port 8080
+Filtered API traffic: 200 packets
+Filtered API traffic: 200 packets
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>start node server.js
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>start node server.js
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+
+
+
+
+
+
+
+
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+
+
+
+
+
+
+
+
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+
+
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+
+
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>npm run simulate-finmark
+
+> finmark-network-lab-setup@1.0.0 simulate-finmark
+> node tools/packet-capture-simulator.js && node tools/traffic-generator.js
+
+Simulating FinMark high-load scenario...
+FinMark simulation saved to: ./logs/finmark-simulation-1751866202592.json
+Analysis report generated:
+  - ./logs/analysis-1751866202598.json
+  - ./logs/analysis-1751866202598.md
+Applying filter: tcp and port 443
+Filtered HTTPS traffic: 200 packets
+Applying filter: tcp and port 8080
+Filtered API traffic: 200 packets
+Starting load test: 20 concurrent users for 30 seconds
+
+========== LOAD TEST RESULTS ==========
+Total Requests: 5520
+Successful: 5520
+Failed: 0
+Success Rate: 100.00%
+Average Response Time: 4.00ms
+Max Response Time: 83.46ms
+Min Response Time: 1.01ms
+=========================================
+
+Results saved to: ./logs/load-test-1751866232874.json
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>npm run generate-reports
+
+> finmark-network-lab-setup@1.0.0 generate-reports
+> npm run packet-capture && npm run topology
+
+
+> finmark-network-lab-setup@1.0.0 packet-capture
+> node tools/packet-capture-simulator.js
+
+Simulating FinMark high-load scenario...
+FinMark simulation saved to: ./logs/finmark-simulation-1751866233827.json
+Analysis report generated:
+  - ./logs/analysis-1751866233834.json
+  - ./logs/analysis-1751866233834.md
+Applying filter: tcp and port 443
+Filtered HTTPS traffic: 200 packets
+Applying filter: tcp and port 8080
+Filtered API traffic: 200 packets
+
+> finmark-network-lab-setup@1.0.0 topology
+> node tools/network-topology-generator.js
+
+✓ Network topology saved to:
+  - ./docs/topology/finmark-network.mmd
+  - ./docs/topology/finmark-network.md
+  - ./config/network-topology.json
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+C:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>cd "c:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark" && node tests/network-validation.js
+🚀 Starting FinMark Network Validation Suite
+================================================
+
+🔍 Step 1: Validating Network Topology...
+  ✓ Devices: 20
+  ✓ Connections: 20
+  ✓ VLANs: 5
+  ✓ Security Zones: 7
+
+🔍 Step 2: Testing VLAN Segmentation...
+  Testing VLAN 10...
+Starting VLAN-aware packet simulation for VLANs: 10
+✓ Network and QoS configurations loaded
+✓ Network and QoS configurations loaded
+Warning: VLAN 10 not found in configuration
+🔄 Applying QoS processing...
+✓ VLAN simulation completed: ./logs/vlan-simulation-1751871377595.json
+  Total packets: 0
+  VLANs simulated: 1
+  Testing VLAN 20...
+Starting VLAN-aware packet simulation for VLANs: 20
+✓ Network and QoS configurations loaded
+Warning: VLAN 20 not found in configuration
+🔄 Applying QoS processing...
+✓ VLAN simulation completed: ./logs/vlan-simulation-1751871377600.json
+  Total packets: 0
+  VLANs simulated: 1
+  Testing VLAN 30...
+Starting VLAN-aware packet simulation for VLANs: 30
+✓ Network and QoS configurations loaded
+Warning: VLAN 30 not found in configuration
+🔄 Applying QoS processing...
+✓ VLAN simulation completed: ./logs/vlan-simulation-1751871377604.json
+  Total packets: 0
+  VLANs simulated: 1
+  Testing VLAN 40...
+Starting VLAN-aware packet simulation for VLANs: 40
+✓ Network and QoS configurations loaded
+Warning: VLAN 40 not found in configuration
+🔄 Applying QoS processing...
+✓ VLAN simulation completed: ./logs/vlan-simulation-1751871377607.json
+  Total packets: 0
+  VLANs simulated: 1
+  Testing VLAN 50...
+Starting VLAN-aware packet simulation for VLANs: 50
+✓ Network and QoS configurations loaded
+Warning: VLAN 50 not found in configuration
+🔄 Applying QoS processing...
+✓ VLAN simulation completed: ./logs/vlan-simulation-1751871377610.json
+  Total packets: 0
+  VLANs simulated: 1
+  ✓ VLAN segmentation tests completed
+
+🔍 Step 3: Validating QoS Implementation...
+Starting VLAN-aware packet simulation for VLANs: 10, 20, 30, 40, 50
+✓ Network and QoS configurations loaded
+Warning: VLAN 10 not found in configuration
+Warning: VLAN 20 not found in configuration
+Warning: VLAN 30 not found in configuration
+Warning: VLAN 40 not found in configuration
+Warning: VLAN 50 not found in configuration
+🔄 Applying QoS processing...
+✓ VLAN simulation completed: ./logs/vlan-simulation-1751871377614.json
+  Total packets: 0
+  VLANs simulated: 5
+  ✓ QoS validation completed
+
+🔍 Step 4: Testing Security Policies...
+  ✓ Security policy validation completed
+    Secured VLANs: 5
+    Isolation rules: 5
+
+🔍 Step 5: Performance Testing...
+Starting VLAN-aware packet simulation for VLANs: 10, 20, 30, 40, 50
+✓ Network and QoS configurations loaded
+Warning: VLAN 10 not found in configuration
+Warning: VLAN 20 not found in configuration
+Warning: VLAN 30 not found in configuration
+Warning: VLAN 40 not found in configuration
+Warning: VLAN 50 not found in configuration
+🔄 Applying QoS processing...
+✓ VLAN simulation completed: ./logs/vlan-simulation-1751871377619.json
+  Total packets: 0
+  VLANs simulated: 5
+  ✓ Performance testing completed
+    Packets processed: 0
+    Average latency: NaNms
+    Packet loss: NaN%
+    Throughput: 0 Mbps
+
+📊 Step 6: Generating Validation Report...
+  ✓ Validation report generated
+    JSON Report: ./logs/validation-report-1751871377624.json
+    Markdown Report: ./docs/Network-Validation-Report.md
+
+
+✅ Network validation completed successfully!
+
+c:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>cd "c:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark" && node tools/network-topology-generator.js
+✓ Network topology saved to:
+  - ./docs/topology/finmark-network.mmd
+  - ./docs/topology/finmark-network.md
+  - ./config/network-topology.json
+
+c:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>cd "c:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark" && node tools/network-topology-generator.js
+✓ Network topology saved to:
+  - ./docs/topology/finmark-network.mmd
+  - ./docs/topology/finmark-network.md
+  - ./config/network-topology.json
+
+c:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>cd "c:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark" && node tests/network-validation.js
+🚀 Starting FinMark Network Validation Suite
+================================================
+
+🔍 Step 1: Validating Network Topology...
+  ✓ Devices: 20
+  ✓ Connections: 20
+  ✓ VLANs: 5
+  ✓ Security Zones: 7
+
+🔍 Step 2: Testing VLAN Segmentation...
+  Testing VLAN 10...
+Starting VLAN-aware packet simulation for VLANs: 10
+✓ Network and QoS configurations loaded
+✓ Network and QoS configurations loaded
+Generating 1110 packets for VLAN 10 (Finance-Department)
+🔄 Applying QoS processing...
+✓ VLAN simulation completed: ./logs/vlan-simulation-1751871534545.json
+  Total packets: 1056
+  VLANs simulated: 1
+  Testing VLAN 20...
+Starting VLAN-aware packet simulation for VLANs: 20
+✓ Network and QoS configurations loaded
+Generating 1340 packets for VLAN 20 (HR-Department)
+🔄 Applying QoS processing...
+✓ VLAN simulation completed: ./logs/vlan-simulation-1751871534570.json
+  Total packets: 1280
+  VLANs simulated: 1
+  Testing VLAN 30...
+Starting VLAN-aware packet simulation for VLANs: 30
+✓ Network and QoS configurations loaded
+Generating 860 packets for VLAN 30 (Operations-Department)
+🔄 Applying QoS processing...
+✓ VLAN simulation completed: ./logs/vlan-simulation-1751871534596.json
+  Total packets: 823
+  VLANs simulated: 1
+  Testing VLAN 40...
+Starting VLAN-aware packet simulation for VLANs: 40
+✓ Network and QoS configurations loaded
+Generating 1440 packets for VLAN 40 (IT-Database-Department)
+🔄 Applying QoS processing...
+✓ VLAN simulation completed: ./logs/vlan-simulation-1751871534611.json
+  Total packets: 1364
+  VLANs simulated: 1
+  Testing VLAN 50...
+Starting VLAN-aware packet simulation for VLANs: 50
+✓ Network and QoS configurations loaded
+Generating 620 packets for VLAN 50 (DMZ-WebServers)
+🔄 Applying QoS processing...
+✓ VLAN simulation completed: ./logs/vlan-simulation-1751871534633.json
+  Total packets: 590
+  VLANs simulated: 1
+  ✓ VLAN segmentation tests completed
+
+🔍 Step 3: Validating QoS Implementation...
+Starting VLAN-aware packet simulation for VLANs: 10, 20, 30, 40, 50
+✓ Network and QoS configurations loaded
+Generating 1605 packets for VLAN 10 (Finance-Department)
+Generating 1485 packets for VLAN 20 (HR-Department)
+Generating 1335 packets for VLAN 30 (Operations-Department)
+Generating 1635 packets for VLAN 40 (IT-Database-Department)
+Generating 1230 packets for VLAN 50 (DMZ-WebServers)
+🔄 Applying QoS processing...
+✓ VLAN simulation completed: ./logs/vlan-simulation-1751871534645.json
+  Total packets: 6970
+  VLANs simulated: 5
+  ✓ QoS validation completed
+    ✓ default: 104.96ms avg latency
+
+🔍 Step 4: Testing Security Policies...
+  ✓ Security policy validation completed
+    Secured VLANs: 5
+    Isolation rules: 5
+
+🔍 Step 5: Performance Testing...
+Starting VLAN-aware packet simulation for VLANs: 10, 20, 30, 40, 50
+✓ Network and QoS configurations loaded
+Generating 3630 packets for VLAN 10 (Finance-Department)
+Generating 2250 packets for VLAN 20 (HR-Department)
+Generating 3150 packets for VLAN 30 (Operations-Department)
+Generating 4080 packets for VLAN 40 (IT-Database-Department)
+Generating 3750 packets for VLAN 50 (DMZ-WebServers)
+🔄 Applying QoS processing...
+✓ VLAN simulation completed: ./logs/vlan-simulation-1751871534770.json
+  Total packets: 16035
+  VLANs simulated: 5
+  ✓ Performance testing completed
+    Packets processed: 16035
+    Average latency: 105.04ms
+    Packet loss: 0%
+    Throughput: 2.28 Mbps
+
+📊 Step 6: Generating Validation Report...
+  ✓ Validation report generated
+    JSON Report: ./logs/validation-report-1751871535069.json
+    Markdown Report: ./docs/Network-Validation-Report.md
+
+
+✅ Network validation completed successfully!
+
+-simulator.js
+Simulating FinMark high-load scenario...
+FinMark simulation saved to: ./logs/finmark-simulation-1751871735016.json
+TypeError: this.generateAnalysisReport is not a function
+    at PacketCaptureSimulator.simulateFinMarkTraffic (c:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark\tools\packet-capture-simulator.js:419:16)
+✓ Network and QoS configurations loaded
+
+-simulator.js
+Simulating FinMark high-load scenario...
+FinMark simulation saved to: ./logs/finmark-simulation-1751871735016.json
+TypeError: this.generateAnalysisReport is not a function
+    at PacketCaptureSimulator.simulateFinMarkTraffic (c:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark\tools\packet-capture-simulator.js:419:16)
+✓ Network and QoS configurations loaded
+-simulator.js
+Simulating FinMark high-load scenario...
+FinMark simulation saved to: ./logs/finmark-simulation-1751871735016.json
+TypeError: this.generateAnalysisReport is not a function
+    at PacketCaptureSimulator.simulateFinMarkTraffic (c:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark\tools\packet-capture-simulator.js:419:16)
+-simulator.js
+Simulating FinMark high-load scenario...
+FinMark simulation saved to: ./logs/finmark-simulation-1751871735016.json
+TypeError: this.generateAnalysisReport is not a function
+-simulator.js
+Simulating FinMark high-load scenario...
+FinMark simulation saved to: ./logs/finmark-simulation-1751871735016.json
+-simulator.js
+Simulating FinMark high-load scenario...
+-simulator.js
+-simulator.js
+-simulator.js
+Simulating FinMark high-load scenario...
+-simulator.js
+-simulator.js
+-simulator.js
+Simulating FinMark high-load scenario...
+FinMark simulation saved to: ./logs/finmark-simulation-1751871735016.json
+TypeError: this.generateAnalysisReport is not a function
+    at PacketCaptureSimulator.simulateFinMarkTraffic (c:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark\tools\packet-capture-simulator.js:419:16)
+✓ Network and QoS configurations loaded
+
+c:\Users\ADMIN\Desktop\developerFiles\ProjectFinmark>
+

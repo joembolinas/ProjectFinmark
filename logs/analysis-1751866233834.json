@@ -1,0 +1,40 @@
+{
+  "totalPackets": 600,
+  "protocols": {
+    "TCP": 600
+  },
+  "topPorts": [
+    {
+      "port": 443,
+      "count": 200
+    },
+    {
+      "port": 5432,
+      "count": 200
+    },
+    {
+      "port": 8080,
+      "count": 200
+    }
+  ],
+  "trafficVolume": {
+    "totalBytes": 437600,
+    "totalKB": 427,
+    "avgPacketSize": 729,
+    "packetsPerSecond": 20
+  },
+  "securityInsights": [
+    {
+      "type": "Unusual Port Activity",
+      "count": 400,
+      "risk": "Low",
+      "description": "High volume of traffic on non-standard ports"
+    }
+  ],
+  "performanceMetrics": {
+    "establishedConnections": 600,
+    "timeWaitConnections": 0,
+    "connectionEfficiency": 1,
+    "potentialBottlenecks": []
+  }
+}

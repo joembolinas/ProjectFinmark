@@ -1,0 +1,466 @@
+{
+  "topology": {
+    "devices": [
+      {
+        "id": "INTERNET",
+        "name": "Internet Cloud",
+        "type": "cloud",
+        "ip": "0.0.0.0",
+        "subnet": "0.0.0.0/0",
+        "ports": [],
+        "status": "active"
+      },
+      {
+        "id": "ASA_FIREWALL",
+        "name": "FinMark External Firewall",
+        "type": "firewall",
+        "ip": "203.0.113.1",
+        "subnet": "203.0.113.0/24",
+        "vlan": "External",
+        "securityZone": "Outside",
+        "ports": [],
+        "status": "active"
+      },
+      {
+        "id": "CORE_L3_SWITCH",
+        "name": "Core Distribution Switch",
+        "type": "switch",
+        "ip": "10.0.0.1",
+        "subnet": "10.0.0.0/16",
+        "vlan": "Management",
+        "securityZone": "Core",
+        "ports": [],
+        "status": "active"
+      },
+      {
+        "id": "SW_FINANCE",
+        "name": "Finance Switch",
+        "type": "switch",
+        "ip": "10.0.10.1",
+        "subnet": "10.0.10.0/24",
+        "vlan": "VLAN_10_Finance",
+        "securityZone": "Finance",
+        "ports": [],
+        "status": "active"
+      },
+      {
+        "id": "SW_HR",
+        "name": "HR Switch",
+        "type": "switch",
+        "ip": "10.0.20.1",
+        "subnet": "10.0.20.0/24",
+        "vlan": "VLAN_20_HR",
+        "securityZone": "HR",
+        "ports": [],
+        "status": "active"
+      },
+      {
+        "id": "SW_OPERATIONS",
+        "name": "Operations Switch",
+        "type": "switch",
+        "ip": "10.0.30.1",
+        "subnet": "10.0.30.0/24",
+        "vlan": "VLAN_30_Operations",
+        "securityZone": "Operations",
+        "ports": [],
+        "status": "active"
+      },
+      {
+        "id": "SW_IT_DB",
+        "name": "IT Database Switch",
+        "type": "switch",
+        "ip": "10.0.40.1",
+        "subnet": "10.0.40.0/24",
+        "vlan": "VLAN_40_IT_DB",
+        "securityZone": "IT_Secure",
+        "ports": [],
+        "status": "active"
+      },
+      {
+        "id": "SW_DMZ",
+        "name": "DMZ Switch",
+        "type": "switch",
+        "ip": "10.0.50.1",
+        "subnet": "10.0.50.0/24",
+        "vlan": "VLAN_50_DMZ",
+        "securityZone": "DMZ",
+        "ports": [],
+        "status": "active"
+      },
+      {
+        "id": "PC_FINANCE_01",
+        "name": "Finance PC 01",
+        "type": "client",
+        "ip": "10.0.10.10",
+        "subnet": "10.0.10.0/24",
+        "vlan": "VLAN_10_Finance",
+        "ports": [],
+        "status": "active"
+      },
+      {
+        "id": "PC_FINANCE_02",
+        "name": "Finance PC 02",
+        "type": "client",
+        "ip": "10.0.10.11",
+        "subnet": "10.0.10.0/24",
+        "vlan": "VLAN_10_Finance",
+        "ports": [],
+        "status": "active"
+      },
+      {
+        "id": "FINANCE_SERVER",
+        "name": "Finance Server",
+        "type": "server",
+        "ip": "10.0.10.50",
+        "subnet": "10.0.10.0/24",
+        "vlan": "VLAN_10_Finance",
+        "ports": [],
+        "status": "active"
+      },
+      {
+        "id": "PC_HR_01",
+        "name": "HR PC 01",
+        "type": "client",
+        "ip": "10.0.20.10",
+        "subnet": "10.0.20.0/24",
+        "vlan": "VLAN_20_HR",
+        "ports": [],
+        "status": "active"
+      },
+      {
+        "id": "HR_SERVER",
+        "name": "HR Server",
+        "type": "server",
+        "ip": "10.0.20.50",
+        "subnet": "10.0.20.0/24",
+        "vlan": "VLAN_20_HR",
+        "ports": [],
+        "status": "active"
+      },
+      {
+        "id": "PC_OPS_01",
+        "name": "Operations PC 01",
+        "type": "client",
+        "ip": "10.0.30.10",
+        "subnet": "10.0.30.0/24",
+        "vlan": "VLAN_30_Operations",
+        "ports": [],
+        "status": "active"
+      },
+      {
+        "id": "OPS_SERVER",
+        "name": "Operations Server",
+        "type": "server",
+        "ip": "10.0.30.50",
+        "subnet": "10.0.30.0/24",
+        "vlan": "VLAN_30_Operations",
+        "ports": [],
+        "status": "active"
+      },
+      {
+        "id": "DB_PRIMARY",
+        "name": "Primary Database Server",
+        "type": "server",
+        "ip": "10.0.40.10",
+        "subnet": "10.0.40.0/24",
+        "vlan": "VLAN_40_IT_DB",
+        "ports": [
+          1433,
+          22
+        ],
+        "status": "active"
+      },
+      {
+        "id": "DB_SECONDARY",
+        "name": "Secondary Database Server",
+        "type": "server",
+        "ip": "10.0.40.11",
+        "subnet": "10.0.40.0/24",
+        "vlan": "VLAN_40_IT_DB",
+        "ports": [
+          1433,
+          22
+        ],
+        "status": "active"
+      },
+      {
+        "id": "WEB_SERVER_1",
+        "name": "Web Server 1",
+        "type": "server",
+        "ip": "10.0.50.10",
+        "subnet": "10.0.50.0/24",
+        "vlan": "VLAN_50_DMZ",
+        "ports": [
+          80,
+          443
+        ],
+        "status": "active"
+      },
+      {
+        "id": "WEB_SERVER_2",
+        "name": "Web Server 2",
+        "type": "server",
+        "ip": "10.0.50.11",
+        "subnet": "10.0.50.0/24",
+        "vlan": "VLAN_50_DMZ",
+        "ports": [
+          80,
+          443
+        ],
+        "status": "active"
+      },
+      {
+        "id": "LOAD_BALANCER_VIP",
+        "name": "Load Balancer VIP",
+        "type": "load-balancer",
+        "ip": "10.0.50.20",
+        "subnet": "10.0.50.0/24",
+        "vlan": "VLAN_50_DMZ",
+        "ports": [],
+        "status": "active"
+      }
+    ],
+    "connections": [
+      {
+        "from": "INTERNET",
+        "to": "ASA_FIREWALL",
+        "type": "fiber",
+        "bandwidth": "100Mbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "ASA_FIREWALL",
+        "to": "CORE_L3_SWITCH",
+        "type": "ethernet",
+        "bandwidth": "1Gbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "CORE_L3_SWITCH",
+        "to": "SW_FINANCE",
+        "type": "trunk",
+        "bandwidth": "1Gbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "CORE_L3_SWITCH",
+        "to": "SW_HR",
+        "type": "trunk",
+        "bandwidth": "1Gbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "CORE_L3_SWITCH",
+        "to": "SW_OPERATIONS",
+        "type": "trunk",
+        "bandwidth": "1Gbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "CORE_L3_SWITCH",
+        "to": "SW_IT_DB",
+        "type": "trunk",
+        "bandwidth": "1Gbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "CORE_L3_SWITCH",
+        "to": "SW_DMZ",
+        "type": "trunk",
+        "bandwidth": "1Gbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "SW_FINANCE",
+        "to": "PC_FINANCE_01",
+        "type": "access",
+        "bandwidth": "100Mbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "SW_FINANCE",
+        "to": "PC_FINANCE_02",
+        "type": "access",
+        "bandwidth": "100Mbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "SW_FINANCE",
+        "to": "FINANCE_SERVER",
+        "type": "access",
+        "bandwidth": "1Gbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "SW_HR",
+        "to": "PC_HR_01",
+        "type": "access",
+        "bandwidth": "100Mbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "SW_HR",
+        "to": "HR_SERVER",
+        "type": "access",
+        "bandwidth": "1Gbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "SW_OPERATIONS",
+        "to": "PC_OPS_01",
+        "type": "access",
+        "bandwidth": "100Mbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "SW_OPERATIONS",
+        "to": "OPS_SERVER",
+        "type": "access",
+        "bandwidth": "1Gbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "SW_IT_DB",
+        "to": "DB_PRIMARY",
+        "type": "access",
+        "bandwidth": "1Gbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "SW_IT_DB",
+        "to": "DB_SECONDARY",
+        "type": "access",
+        "bandwidth": "1Gbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "SW_DMZ",
+        "to": "WEB_SERVER_1",
+        "type": "access",
+        "bandwidth": "1Gbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "SW_DMZ",
+        "to": "WEB_SERVER_2",
+        "type": "access",
+        "bandwidth": "1Gbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "SW_DMZ",
+        "to": "LOAD_BALANCER_VIP",
+        "type": "access",
+        "bandwidth": "1Gbps",
+        "status": "active",
+        "protocols": []
+      },
+      {
+        "from": "DB_PRIMARY",
+        "to": "DB_SECONDARY",
+        "type": "replication",
+        "bandwidth": "1Gbps",
+        "status": "active",
+        "protocols": []
+      }
+    ]
+  },
+  "vlans": [
+    {
+      "id": 10,
+      "name": "Finance-Department",
+      "network": "10.0.10.0/24",
+      "gateway": "10.0.10.1"
+    },
+    {
+      "id": 20,
+      "name": "HR-Department",
+      "network": "10.0.20.0/24",
+      "gateway": "10.0.20.1"
+    },
+    {
+      "id": 30,
+      "name": "Operations-Department",
+      "network": "10.0.30.0/24",
+      "gateway": "10.0.30.1"
+    },
+    {
+      "id": 40,
+      "name": "IT-Database-Department",
+      "network": "10.0.40.0/24",
+      "gateway": "10.0.40.1"
+    },
+    {
+      "id": 50,
+      "name": "DMZ-WebServers",
+      "network": "10.0.50.0/24",
+      "gateway": "10.0.50.1"
+    }
+  ],
+  "securityZones": [
+    {
+      "name": "Outside",
+      "level": 0,
+      "description": "Internet and external networks"
+    },
+    {
+      "name": "DMZ",
+      "level": 25,
+      "description": "Public-facing web servers"
+    },
+    {
+      "name": "Core",
+      "level": 75,
+      "description": "Core network infrastructure"
+    },
+    {
+      "name": "Finance",
+      "level": 90,
+      "description": "Financial data and systems"
+    },
+    {
+      "name": "HR",
+      "level": 85,
+      "description": "Human resources systems"
+    },
+    {
+      "name": "Operations",
+      "level": 80,
+      "description": "Operational systems"
+    },
+    {
+      "name": "IT_Secure",
+      "level": 95,
+      "description": "Critical IT infrastructure and databases"
+    }
+  ],
+  "simulation": {
+    "totalDevices": 20,
+    "totalConnections": 20,
+    "networkSegments": 5
+  },
+  "metadata": {
+    "generated": "2025-07-07T06:58:11.022Z",
+    "version": "2.0.0",
+    "ciscoAligned": true,
+    "description": "FinMark Enterprise Network - Cisco Packet Tracer Aligned"
+  }
+}
