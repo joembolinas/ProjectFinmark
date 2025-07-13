@@ -1,0 +1,503 @@
+<?xml version="1.0"?>
+<!--
+FinMark Corporation pfSense Configuration
+Week 9: Prototype Refinement and Presentation Preparation
+Production-Ready Network Security and Traffic Management
+
+Course: MO-IT151 - Platform Technologies
+Author: FinMark Network Security Team
+-->
+<pfsense>
+    <version>21.02</version>
+    <lastchange>Week 9 Prototype Refinement</lastchange>
+    
+    <!-- Network Interfaces Configuration -->
+    <interfaces>
+        <!-- WAN Interface (Untrusted) -->
+        <wan>
+            <enable>1</enable>
+            <if>em0</if>
+            <descr>WAN - Internet Gateway</descr>
+            <ipaddr>203.0.113.1</ipaddr>
+            <subnet>24</subnet>
+            <gateway>203.0.113.254</gateway>
+            <blockpriv>1</blockpriv>
+            <blockbogons>1</blockbogons>
+        </wan>
+        
+        <!-- LAN Interface (Trusted) -->
+        <lan>
+            <enable>1</enable>
+            <if>em1</if>
+            <descr>LAN - Financial Services</descr>
+            <ipaddr>192.168.1.1</ipaddr>
+            <subnet>24</subnet>
+            <dhcp_enabled>1</dhcp_enabled>
+        </lan>
+        
+        <!-- DMZ Interface (Limited Trust) -->
+        <dmz>
+            <enable>1</enable>
+            <if>em2</if>
+            <descr>DMZ - Public Services</descr>
+            <ipaddr>192.168.100.1</ipaddr>
+            <subnet>24</subnet>
+        </dmz>
+        
+        <!-- Management Interface (Admin) -->
+        <mgmt>
+            <enable>1</enable>
+            <if>em3</if>
+            <descr>MGMT - Administration</descr>
+            <ipaddr>10.0.0.1</ipaddr>
+            <subnet>24</subnet>
+        </mgmt>
+    </interfaces>
+    
+    <!-- Advanced Firewall Rules -->
+    <filter>
+        <rule>
+            <!-- FW-001: HTTPS Financial Transactions (Critical Priority) -->
+            <type>pass</type>
+            <interface>wan</interface>
+            <protocol>tcp</protocol>
+            <source><any>1</any></source>
+            <destination>
+                <network>lan</network>
+                <port>443</port>
+            </destination>
+            <descr>HTTPS Financial Transactions - Critical Priority</descr>
+            <associated-rule-id>FW-001</associated-rule-id>
+            <max-src-conn>100</max-src-conn>
+            <max-src-conn-rate>50</max-src-conn-rate>
+            <statetimeout>300</statetimeout>
+            <os-fingerprint>1</os-fingerprint>
+            <gateway>default</gateway>
+            <dnpipe>qCritical</dnpipe>
+            <pdnpipe>qCritical</pdnpipe>
+        </rule>
+        
+        <rule>
+            <!-- FW-002: HTTP to HTTPS Redirect -->
+            <type>pass</type>
+            <interface>wan</interface>
+            <protocol>tcp</protocol>
+            <source><any>1</any></source>
+            <destination>
+                <network>lan</network>
+                <port>80</port>
+            </destination>
+            <descr>HTTP to HTTPS Redirect</descr>
+            <associated-rule-id>FW-002</associated-rule-id>
+            <max-src-conn>50</max-src-conn>
+            <gateway>default</gateway>
+        </rule>
+        
+        <rule>
+            <!-- FW-003: Media Content Delivery (Low Priority) -->
+            <type>pass</type>
+            <interface>lan</interface>
+            <protocol>tcp</protocol>
+            <source><network>lan</network></source>
+            <destination>
+                <network>dmz</network>
+                <port>8080</port>
+            </destination>
+            <descr>Media Content Delivery - Low Priority</descr>
+            <associated-rule-id>FW-003</associated-rule-id>
+            <max-src-conn>25</max-src-conn>
+            <dnpipe>qBulk</dnpipe>
+            <pdnpipe>qBulk</pdnpipe>
+        </rule>
+        
+        <rule>
+            <!-- FW-004: Secure Administrative Access -->
+            <type>pass</type>
+            <interface>mgmt</interface>
+            <protocol>tcp</protocol>
+            <source><network>mgmt</network></source>
+            <destination>
+                <any>1</any>
+                <port>22</port>
+            </destination>
+            <descr>Secure Administrative Access with MFA</descr>
+            <associated-rule-id>FW-004</associated-rule-id>
+            <max-src-conn>5</max-src-conn>
+            <authmode>mfa</authmode>
+            <dnpipe>qImportant</dnpipe>
+        </rule>
+        
+        <rule>
+            <!-- FW-005: Block High-Risk Legacy Ports -->
+            <type>block</type>
+            <interface>wan</interface>
+            <protocol>tcp</protocol>
+            <source><any>1</any></source>
+            <destination>
+                <any>1</any>
+                <port>23,21,135,139,445,1433,3389</port>
+            </destination>
+            <descr>Block High-Risk Legacy Ports</descr>
+            <associated-rule-id>FW-005</associated-rule-id>
+            <log>1</log>
+            <quick>1</quick>
+        </rule>
+        
+        <rule>
+            <!-- FW-006: DDoS Protection Rate Limiting -->
+            <type>pass</type>
+            <interface>wan</interface>
+            <protocol>tcp</protocol>
+            <source><any>1</any></source>
+            <destination><network>lan</network></destination>
+            <descr>Anti-DDoS Connection Limiting</descr>
+            <associated-rule-id>FW-006</associated-rule-id>
+            <max-src-conn>100</max-src-conn>
+            <max-src-conn-rate>10</max-src-conn-rate>
+            <max-src-conn-rates>60</max-src-conn-rates>
+        </rule>
+    </filter>
+    
+    <!-- Traffic Shaper Configuration -->
+    <shaper>
+        <enable>1</enable>
+        <scheduler>HFSC</scheduler>
+        
+        <!-- Traffic Shaper Queues -->
+        <queue>
+            <name>qCritical</name>
+            <interface>wan</interface>
+            <qlimit>1000</qlimit>
+            <priority>7</priority>
+            <description>Financial Transactions - Critical Priority</description>
+            <bandwidth>60</bandwidth>
+            <bandwidthtype>%</bandwidthtype>
+            <upperlimit>70</upperlimit>
+            <upperlimittype>%</upperlimittype>
+            <linkshare>60</linkshare>
+            <linkshareunit>%</linkshareunit>
+            <realtime>60</realtime>
+            <realtimeunit>%</realtimeunit>
+        </queue>
+        
+        <queue>
+            <name>qImportant</name>
+            <interface>wan</interface>
+            <qlimit>500</qlimit>
+            <priority>5</priority>
+            <description>Management Traffic - Important Priority</description>
+            <bandwidth>25</bandwidth>
+            <bandwidthtype>%</bandwidthtype>
+            <upperlimit>35</upperlimit>
+            <upperlimittype>%</upperlimittype>
+            <linkshare>25</linkshare>
+            <linkshareunit>%</linkshareunit>
+        </queue>
+        
+        <queue>
+            <name>qNormal</name>
+            <interface>wan</interface>
+            <qlimit>200</qlimit>
+            <priority>3</priority>
+            <description>Web Traffic - Normal Priority</description>
+            <bandwidth>10</bandwidth>
+            <bandwidthtype>%</bandwidthtype>
+            <upperlimit>20</upperlimit>
+            <upperlimittype>%</upperlimittype>
+            <linkshare>10</linkshare>
+            <linkshareunit>%</linkshareunit>
+        </queue>
+        
+        <queue>
+            <name>qBulk</name>
+            <interface>wan</interface>
+            <qlimit>100</qlimit>
+            <priority>1</priority>
+            <description>File Transfers - Low Priority</description>
+            <bandwidth>5</bandwidth>
+            <bandwidthtype>%</bandwidthtype>
+            <upperlimit>10</upperlimit>
+            <upperlimittype>%</upperlimittype>
+            <linkshare>5</linkshare>
+            <linkshareunit>%</linkshareunit>
+        </queue>
+    </shaper>
+    
+    <!-- Load Balancer Configuration -->
+    <load_balancer>
+        <!-- Financial Services Pool -->
+        <pool>
+            <name>financial_pool</name>
+            <mode>loadbalance</mode>
+            <description>Financial Services Load Balancer Pool</description>
+            <servers>
+                <server>
+                    <name>fin-srv-01</name>
+                    <address>192.168.1.10</address>
+                    <port>443</port>
+                    <weight>100</weight>
+                    <backup>0</backup>
+                </server>
+                <server>
+                    <name>fin-srv-02</name>
+                    <address>192.168.1.11</address>
+                    <port>443</port>
+                    <weight>100</weight>
+                    <backup>0</backup>
+                </server>
+                <server>
+                    <name>fin-srv-03</name>
+                    <address>192.168.1.12</address>
+                    <port>443</port>
+                    <weight>50</weight>
+                    <backup>1</backup>
+                </server>
+            </servers>
+            <monitor>financial_monitor</monitor>
+            <retry>3</retry>
+        </pool>
+        
+        <!-- Health Monitors -->
+        <monitor>
+            <name>financial_monitor</name>
+            <type>HTTPS</type>
+            <interval>5</interval>
+            <timeout>3</timeout>
+            <up>2</up>
+            <down>3</down>
+            <path>/health</path>
+            <host>financial.finmark.local</host>
+            <description>Financial Services Health Monitor</description>
+        </monitor>
+        
+        <!-- Virtual Servers -->
+        <virtual_server>
+            <name>financial_vip</name>
+            <ipaddr>203.0.113.100</ipaddr>
+            <port>443</port>
+            <pool>financial_pool</pool>
+            <mode>redirect</mode>
+            <relay_action>pass</relay_action>
+            <nat_method>route</nat_method>
+            <persistence>sticky</persistence>
+            <persistence_timeout>1800</persistence_timeout>
+        </virtual_server>
+    </load_balancer>
+    
+    <!-- VPN Configuration (WireGuard) -->
+    <wireguard>
+        <server>
+            <enable>1</enable>
+            <interface>wg0</interface>
+            <listenport>51820</listenport>
+            <privatekey>SERVER_PRIVATE_KEY_HERE</privatekey>
+            <address>10.10.10.1/24</address>
+            <description>FinMark Secure VPN Server</description>
+            
+            <!-- Client Configuration -->
+            <peer>
+                <enabled>1</enabled>
+                <tun>wg0</tun>
+                <publickey>CLIENT_PUBLIC_KEY_HERE</publickey>
+                <allowedips>10.10.10.2/32</allowedips>
+                <descr>Admin Client 1</descr>
+                <persistentkeepalive>25</persistentkeepalive>
+            </peer>
+        </server>
+        
+        <!-- VPN Firewall Rules -->
+        <rules>
+            <rule>
+                <type>pass</type>
+                <interface>wireguard</interface>
+                <protocol>any</protocol>
+                <source><network>wireguard</network></source>
+                <destination><network>lan</network></destination>
+                <descr>WireGuard to LAN Access</descr>
+                <log>1</log>
+            </rule>
+        </rules>
+    </wireguard>
+    
+    <!-- Advanced Security Features -->
+    <security>
+        <!-- Geo-blocking -->
+        <geoblocking>
+            <enable>1</enable>
+            <countries>
+                <country>CN</country>
+                <country>RU</country>
+                <country>KP</country>
+            </countries>
+            <action>block</action>
+            <logging>1</logging>
+        </geoblocking>
+        
+        <!-- IP Reputation -->
+        <ipreputation>
+            <enable>1</enable>
+            <feeds>
+                <feed>
+                    <name>malware_domains</name>
+                    <url>https://reputation.finmark.local/malware.txt</url>
+                    <interval>1440</interval>
+                </feed>
+                <feed>
+                    <name>tor_exits</name>
+                    <url>https://reputation.finmark.local/tor.txt</url>
+                    <interval>360</interval>
+                </feed>
+            </feeds>
+            <action>block</action>
+        </ipreputation>
+        
+        <!-- Application Control -->
+        <appcontrol>
+            <enable>1</enable>
+            <rules>
+                <rule>
+                    <name>Block P2P</name>
+                    <application>bittorrent,kazaa,limewire</application>
+                    <action>block</action>
+                    <interface>lan</interface>
+                </rule>
+                <rule>
+                    <name>Limit Social Media</name>
+                    <application>facebook,twitter,instagram</application>
+                    <action>limit</action>
+                    <bandwidth>1Mbps</bandwidth>
+                    <interface>lan</interface>
+                </rule>
+            </rules>
+        </appcontrol>
+        
+        <!-- SSL/TLS Inspection -->
+        <sslinspection>
+            <enable>1</enable>
+            <certificate>finmark_ca</certificate>
+            <excluded_domains>
+                <domain>banking.finmark.com</domain>
+                <domain>*.financial.finmark.com</domain>
+            </excluded_domains>
+        </sslinspection>
+    </security>
+    
+    <!-- DHCP Server Configuration -->
+    <dhcpd>
+        <lan>
+            <enable>1</enable>
+            <range>
+                <from>192.168.1.100</from>
+                <to>192.168.1.200</to>
+            </range>
+            <defaultleasetime>3600</defaultleasetime>
+            <maxleasetime>7200</maxleasetime>
+            <domain>finmark.local</domain>
+            <dnsserver>192.168.1.1,8.8.8.8</dnsserver>
+            <gateway>192.168.1.1</gateway>
+            <ntpserver>192.168.1.1</ntpserver>
+        </lan>
+    </dhcpd>
+    
+    <!-- DNS Configuration -->
+    <dnsmasq>
+        <enable>1</enable>
+        <regdhcp>1</regdhcp>
+        <regdhcpstatic>1</regdhcpstatic>
+        <dhcpfirst>1</dhcpfirst>
+        <strict_order>1</strict_order>
+        <custom_options>
+            # FinMark DNS Security Settings
+            server=8.8.8.8
+            server=1.1.1.1
+            bogus-priv
+            domain-needed
+            expand-hosts
+            localise-queries
+            no-negcache
+            
+            # Block malicious domains
+            address=/malware.example.com/127.0.0.1
+            address=/phishing.example.com/127.0.0.1
+        </custom_options>
+    </dnsmasq>
+    
+    <!-- Logging Configuration -->
+    <syslog>
+        <enable>1</enable>
+        <sourceip>192.168.1.1</sourceip>
+        <ipproto>ipv4</ipproto>
+        <filter>1</filter>
+        <dhcp>1</dhcp>
+        <auth>1</auth>
+        <portalauth>1</portalauth>
+        <vpn>1</vpn>
+        <dpinger>1</dpinger>
+        <relayd>1</relayd>
+        <hostapd>1</hostapd>
+        <system>1</system>
+        <resolver>1</resolver>
+        <ppp>1</ppp>
+        <routing>1</routing>
+        <ntpd>1</ntpd>
+        
+        <!-- Remote Syslog Server -->
+        <remoteserver>
+            <server1>192.168.1.250</server1>
+            <port1>514</port1>
+            <facility1>23</facility1>
+        </remoteserver>
+    </syslog>
+    
+    <!-- SNMP Configuration for Monitoring -->
+    <snmpd>
+        <enable>1</enable>
+        <syslocation>FinMark Data Center</syslocation>
+        <syscontact>security@finmark.com</syscontact>
+        <rocommunity>public_readonly</rocommunity>
+        <bindlan>1</bindlan>
+        <bindwlan>0</bindwlan>
+        <modules>
+            <pfinfo>1</pfinfo>
+            <netgraph>1</netgraph>
+            <pf>1</pf>
+            <hostres>1</hostres>
+        </modules>
+        <traps>1</traps>
+        <trapserver>192.168.1.250</trapserver>
+        <trapserverport>162</trapserverport>
+        <trapstring>finmark_traps</trapstring>
+    </snmpd>
+    
+    <!-- Week 9 Configuration Summary -->
+    <configuration_notes>
+        <created_date>2025-07-14</created_date>
+        <created_by>FinMark Network Security Team</created_by>
+        <course>MO-IT151 Platform Technologies</course>
+        <week>Week 9 - Prototype Refinement</week>
+        <version>Production-Ready v1.0</version>
+        
+        <features_implemented>
+            <feature>Enhanced firewall rules with geo-blocking</feature>
+            <feature>Traffic shaping with 60% bandwidth for financial transactions</feature>
+            <feature>WireGuard VPN with advanced security</feature>
+            <feature>Load balancing with health monitoring</feature>
+            <feature>Advanced security features (IP reputation, App control)</feature>
+            <feature>Comprehensive logging and monitoring</feature>
+        </features_implemented>
+        
+        <performance_targets>
+            <target>Success Rate: 95%</target>
+            <target>Security Effectiveness: 35%</target>
+            <target>System Resilience: 92%</target>
+            <target>Response Time: &lt;200ms</target>
+        </performance_targets>
+        
+        <compliance>
+            <standard>PCI DSS Level 1</standard>
+            <standard>GDPR Article 32</standard>
+            <standard>PDPA Data Protection</standard>
+            <standard>ISO 27001 Security Controls</standard>
+        </compliance>
+    </configuration_notes>
+</pfsense>
