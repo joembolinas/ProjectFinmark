@@ -1,0 +1,731 @@
+{
+  "timestamp": "2025-07-14T19:53:55.526Z",
+  "scenario": "Week 8: IDPS Analysis During Traffic Spike",
+  "duration": "7.665 seconds",
+  "performance": {
+    "packetsAnalyzed": 60000,
+    "threatsDetected": 33332,
+    "attacksBlocked": 32341,
+    "trustedTraffic": 26668,
+    "threatDetectionRate": 55.55,
+    "blockingEffectiveness": 97.03,
+    "packetsPerSecond": 7828
+  },
+  "threatAnalysis": {
+    "severityBreakdown": {
+      "CRITICAL": 4275,
+      "HIGH": 28066,
+      "MEDIUM": 991,
+      "LOW": 0
+    },
+    "topThreatTypes": [
+      [
+        "HIGH_FREQUENCY_DDOS",
+        27066
+      ],
+      [
+        "KNOWN_MALICIOUS_IP",
+        6107
+      ],
+      [
+        "SUSPICIOUS_USER_AGENT",
+        2992
+      ],
+      [
+        "SQL_INJECTION",
+        1870
+      ],
+      [
+        "MALFORMED_PACKET",
+        1035
+      ]
+    ],
+    "blockedIPCount": 10,
+    "blockedIPs": [
+      "192.168.1.102",
+      "192.168.100.666",
+      "192.168.1.100",
+      "10.0.30.40",
+      "203.0.113.attack",
+      "172.16.0.scan",
+      "10.0.10.50",
+      "10.0.20.30",
+      "198.51.100.bot",
+      "192.168.1.101"
+    ]
+  },
+  "ruleEffectiveness": [
+    {
+      "ruleId": "DDOS_DETECTION",
+      "name": "DDoS Attack Detection",
+      "triggeredCount": 996,
+      "effectiveness": "HIGH"
+    },
+    {
+      "ruleId": "SQL_INJECTION",
+      "name": "SQL Injection Attempt",
+      "triggeredCount": 1870,
+      "effectiveness": "CRITICAL"
+    },
+    {
+      "ruleId": "XSS_ATTACK",
+      "name": "Cross-Site Scripting",
+      "triggeredCount": 909,
+      "effectiveness": "HIGH"
+    },
+    {
+      "ruleId": "BRUTE_FORCE",
+      "name": "Brute Force Login",
+      "triggeredCount": 993,
+      "effectiveness": "MEDIUM"
+    },
+    {
+      "ruleId": "SUSPICIOUS_USER_AGENT",
+      "name": "Suspicious User Agent",
+      "triggeredCount": 2992,
+      "effectiveness": "MEDIUM"
+    },
+    {
+      "ruleId": "PORT_SCAN",
+      "name": "Port Scanning Activity",
+      "triggeredCount": 1002,
+      "effectiveness": "HIGH"
+    },
+    {
+      "ruleId": "UNAUTHORIZED_ACCESS",
+      "name": "Unauthorized Access Attempt",
+      "triggeredCount": 0,
+      "effectiveness": "MEDIUM"
+    },
+    {
+      "ruleId": "MALFORMED_PACKET",
+      "name": "Malformed Packet",
+      "triggeredCount": 1035,
+      "effectiveness": "MEDIUM"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "HIGH",
+      "category": "Threat Level",
+      "issue": "High threat detection rate of 55.553333333333335% indicates active attack",
+      "solution": "Implement additional security layers and increase monitoring frequency"
+    }
+  ],
+  "recentAlerts": [
+    {
+      "id": "ALERT_1752522835449_fzju8",
+      "timestamp": "2025-07-14T19:53:55.449Z",
+      "sourceIP": "192.168.100.666",
+      "destinationIP": "10.0.50.10",
+      "threats": [
+        "KNOWN_MALICIOUS_IP"
+      ],
+      "severity": "CRITICAL",
+      "action": "BLOCK",
+      "confidence": 95,
+      "description": "Unknown threat: KNOWN_MALICIOUS_IP",
+      "packet": {
+        "id": "tt2rk3yyp",
+        "protocol": "FTP",
+        "size": 610,
+        "payload": "normal_request_data"
+      }
+    },
+    {
+      "id": "ALERT_1752522835450_7n9e2",
+      "timestamp": "2025-07-14T19:53:55.450Z",
+      "sourceIP": "192.168.1.100",
+      "destinationIP": "10.0.50.11",
+      "threats": [
+        "DDOS_DETECTION",
+        "SUSPICIOUS_USER_AGENT"
+      ],
+      "severity": "HIGH",
+      "action": "BLOCK",
+      "confidence": 80,
+      "description": "Detects potential DDoS attacks based on request frequency; Detects suspicious user agents indicating automated tools",
+      "packet": {
+        "id": "jluvcoqjw",
+        "protocol": "DNS",
+        "size": 850,
+        "payload": "high_frequency_requests"
+      }
+    },
+    {
+      "id": "ALERT_1752522835450_j4y2k",
+      "timestamp": "2025-07-14T19:53:55.450Z",
+      "sourceIP": "172.16.0.scan",
+      "destinationIP": "10.0.40.20",
+      "threats": [
+        "SQL_INJECTION",
+        "XSS_ATTACK"
+      ],
+      "severity": "CRITICAL",
+      "action": "BLOCK",
+      "confidence": 80,
+      "description": "Detects SQL injection attempts in HTTP parameters; Detects XSS attacks in web requests",
+      "packet": {
+        "id": "fq1hntjwt",
+        "protocol": "HTTP",
+        "size": 426,
+        "payload": "<script>alert(\"xss\")</script>"
+      }
+    },
+    {
+      "id": "ALERT_1752522835450_ok3jj",
+      "timestamp": "2025-07-14T19:53:55.450Z",
+      "sourceIP": "192.168.100.666",
+      "destinationIP": "10.0.40.21",
+      "threats": [
+        "KNOWN_MALICIOUS_IP"
+      ],
+      "severity": "CRITICAL",
+      "action": "BLOCK",
+      "confidence": 95,
+      "description": "Unknown threat: KNOWN_MALICIOUS_IP",
+      "packet": {
+        "id": "xef11uvls",
+        "protocol": "SSH",
+        "size": 1321,
+        "payload": "normal_request_data"
+      }
+    },
+    {
+      "id": "ALERT_1752522835450_8u2cl",
+      "timestamp": "2025-07-14T19:53:55.450Z",
+      "sourceIP": "10.0.20.30",
+      "destinationIP": "10.0.50.10",
+      "threats": [
+        "PORT_SCAN"
+      ],
+      "severity": "HIGH",
+      "action": "BLOCK",
+      "confidence": 80,
+      "description": "Detects port scanning activities",
+      "packet": {
+        "id": "ujgpt6gvm",
+        "protocol": "SSH",
+        "size": 119,
+        "payload": "port_scan_detected"
+      }
+    },
+    {
+      "id": "ALERT_1752522835450_84m2f",
+      "timestamp": "2025-07-14T19:53:55.450Z",
+      "sourceIP": "192.168.100.666",
+      "destinationIP": "10.0.50.10",
+      "threats": [
+        "KNOWN_MALICIOUS_IP"
+      ],
+      "severity": "CRITICAL",
+      "action": "BLOCK",
+      "confidence": 95,
+      "description": "Unknown threat: KNOWN_MALICIOUS_IP",
+      "packet": {
+        "id": "go7a566pj",
+        "protocol": "FTP",
+        "size": 382,
+        "payload": "normal_request_data"
+      }
+    },
+    {
+      "id": "ALERT_1752522835450_fh12s",
+      "timestamp": "2025-07-14T19:53:55.450Z",
+      "sourceIP": "192.168.100.666",
+      "destinationIP": "10.0.50.11",
+      "threats": [
+        "KNOWN_MALICIOUS_IP"
+      ],
+      "severity": "CRITICAL",
+      "action": "BLOCK",
+      "confidence": 95,
+      "description": "Unknown threat: KNOWN_MALICIOUS_IP",
+      "packet": {
+        "id": "7z5j2yslq",
+        "protocol": "SMTP",
+        "size": 500,
+        "payload": "normal_request_data"
+      }
+    },
+    {
+      "id": "ALERT_1752522835450_y2c9l",
+      "timestamp": "2025-07-14T19:53:55.450Z",
+      "sourceIP": "192.168.1.101",
+      "destinationIP": "10.0.40.21",
+      "threats": [
+        "PORT_SCAN"
+      ],
+      "severity": "HIGH",
+      "action": "BLOCK",
+      "confidence": 80,
+      "description": "Detects port scanning activities",
+      "packet": {
+        "id": "2hkrp8114",
+        "protocol": "DNS",
+        "size": 757,
+        "payload": "port_scan_detected"
+      }
+    },
+    {
+      "id": "ALERT_1752522835451_ftpj9",
+      "timestamp": "2025-07-14T19:53:55.451Z",
+      "sourceIP": "192.168.100.666",
+      "destinationIP": "10.0.40.20",
+      "threats": [
+        "KNOWN_MALICIOUS_IP"
+      ],
+      "severity": "CRITICAL",
+      "action": "BLOCK",
+      "confidence": 95,
+      "description": "Unknown threat: KNOWN_MALICIOUS_IP",
+      "packet": {
+        "id": "805f6g9gp",
+        "protocol": "SMTP",
+        "size": 101,
+        "payload": "normal_request_data"
+      }
+    },
+    {
+      "id": "ALERT_1752522835451_aelul",
+      "timestamp": "2025-07-14T19:53:55.451Z",
+      "sourceIP": "192.168.100.666",
+      "destinationIP": "10.0.40.21",
+      "threats": [
+        "KNOWN_MALICIOUS_IP"
+      ],
+      "severity": "CRITICAL",
+      "action": "BLOCK",
+      "confidence": 95,
+      "description": "Unknown threat: KNOWN_MALICIOUS_IP",
+      "packet": {
+        "id": "oapus053m",
+        "protocol": "HTTPS",
+        "size": 270,
+        "payload": "normal_request_data"
+      }
+    }
+  ],
+  "detailedResults": [
+    {
+      "second": 1,
+      "newAlerts": 593,
+      "blockedPackets": 585,
+      "legitimateTraffic": 407,
+      "analysisTime": 13.6677060494278
+    },
+    {
+      "second": 2,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 12.867482694175951
+    },
+    {
+      "second": 3,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 7.15923286880858
+    },
+    {
+      "second": 4,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 9.05706034346834
+    },
+    {
+      "second": 5,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 14.037336435044793
+    },
+    {
+      "second": 6,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 6.064730055389525
+    },
+    {
+      "second": 7,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 10.5468342806106
+    },
+    {
+      "second": 8,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 12.973368205535916
+    },
+    {
+      "second": 9,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 11.747401737601171
+    },
+    {
+      "second": 10,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 6.195768010281748
+    },
+    {
+      "second": 11,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 11.724647007272138
+    },
+    {
+      "second": 12,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 11.114082461203674
+    },
+    {
+      "second": 13,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 11.005731507691777
+    },
+    {
+      "second": 14,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 5.446856738701717
+    },
+    {
+      "second": 15,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 12.590549411570791
+    },
+    {
+      "second": 16,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 12.283080831953013
+    },
+    {
+      "second": 17,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 12.095457202029642
+    },
+    {
+      "second": 18,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 11.041660064233824
+    },
+    {
+      "second": 19,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 13.629004862260231
+    },
+    {
+      "second": 20,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 8.102459107782625
+    },
+    {
+      "second": 21,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 10.388849021952213
+    },
+    {
+      "second": 22,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 13.167255906630862
+    },
+    {
+      "second": 23,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 6.1716376901866425
+    },
+    {
+      "second": 24,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 5.27446329200715
+    },
+    {
+      "second": 25,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 5.958696682852594
+    },
+    {
+      "second": 26,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 12.825184664568887
+    },
+    {
+      "second": 27,
+      "newAlerts": 1000,
+      "blockedPackets": 1000,
+      "legitimateTraffic": 0,
+      "analysisTime": 6.978938983929968
+    },
+    {
+      "second": 28,
+      "newAlerts": 639,
+      "blockedPackets": 623,
+      "legitimateTraffic": 361,
+      "analysisTime": 9.2710080917621
+    },
+    {
+      "second": 29,
+      "newAlerts": 165,
+      "blockedPackets": 137,
+      "legitimateTraffic": 835,
+      "analysisTime": 9.165567899157052
+    },
+    {
+      "second": 30,
+      "newAlerts": 192,
+      "blockedPackets": 153,
+      "legitimateTraffic": 808,
+      "analysisTime": 12.359743010956619
+    },
+    {
+      "second": 31,
+      "newAlerts": 196,
+      "blockedPackets": 163,
+      "legitimateTraffic": 804,
+      "analysisTime": 14.303725349538235
+    },
+    {
+      "second": 32,
+      "newAlerts": 180,
+      "blockedPackets": 158,
+      "legitimateTraffic": 820,
+      "analysisTime": 11.429650735076606
+    },
+    {
+      "second": 33,
+      "newAlerts": 194,
+      "blockedPackets": 170,
+      "legitimateTraffic": 806,
+      "analysisTime": 7.415308970585823
+    },
+    {
+      "second": 34,
+      "newAlerts": 180,
+      "blockedPackets": 154,
+      "legitimateTraffic": 820,
+      "analysisTime": 9.042034524324848
+    },
+    {
+      "second": 35,
+      "newAlerts": 193,
+      "blockedPackets": 159,
+      "legitimateTraffic": 807,
+      "analysisTime": 11.66425093057336
+    },
+    {
+      "second": 36,
+      "newAlerts": 225,
+      "blockedPackets": 197,
+      "legitimateTraffic": 775,
+      "analysisTime": 5.8029820219997745
+    },
+    {
+      "second": 37,
+      "newAlerts": 177,
+      "blockedPackets": 145,
+      "legitimateTraffic": 823,
+      "analysisTime": 13.80273376797755
+    },
+    {
+      "second": 38,
+      "newAlerts": 186,
+      "blockedPackets": 164,
+      "legitimateTraffic": 814,
+      "analysisTime": 8.533240284829889
+    },
+    {
+      "second": 39,
+      "newAlerts": 185,
+      "blockedPackets": 151,
+      "legitimateTraffic": 815,
+      "analysisTime": 13.107673805415711
+    },
+    {
+      "second": 40,
+      "newAlerts": 203,
+      "blockedPackets": 166,
+      "legitimateTraffic": 797,
+      "analysisTime": 6.772511093442006
+    },
+    {
+      "second": 41,
+      "newAlerts": 191,
+      "blockedPackets": 159,
+      "legitimateTraffic": 809,
+      "analysisTime": 14.028500919674629
+    },
+    {
+      "second": 42,
+      "newAlerts": 203,
+      "blockedPackets": 165,
+      "legitimateTraffic": 797,
+      "analysisTime": 6.366319910546007
+    },
+    {
+      "second": 43,
+      "newAlerts": 195,
+      "blockedPackets": 164,
+      "legitimateTraffic": 805,
+      "analysisTime": 10.991342565451403
+    },
+    {
+      "second": 44,
+      "newAlerts": 190,
+      "blockedPackets": 158,
+      "legitimateTraffic": 810,
+      "analysisTime": 7.618654376638965
+    },
+    {
+      "second": 45,
+      "newAlerts": 181,
+      "blockedPackets": 152,
+      "legitimateTraffic": 819,
+      "analysisTime": 11.342671040673045
+    },
+    {
+      "second": 46,
+      "newAlerts": 190,
+      "blockedPackets": 160,
+      "legitimateTraffic": 810,
+      "analysisTime": 8.666282860353917
+    },
+    {
+      "second": 47,
+      "newAlerts": 183,
+      "blockedPackets": 154,
+      "legitimateTraffic": 817,
+      "analysisTime": 11.447966035902708
+    },
+    {
+      "second": 48,
+      "newAlerts": 181,
+      "blockedPackets": 157,
+      "legitimateTraffic": 819,
+      "analysisTime": 6.713683686053695
+    },
+    {
+      "second": 49,
+      "newAlerts": 194,
+      "blockedPackets": 162,
+      "legitimateTraffic": 806,
+      "analysisTime": 8.574747879760974
+    },
+    {
+      "second": 50,
+      "newAlerts": 203,
+      "blockedPackets": 180,
+      "legitimateTraffic": 797,
+      "analysisTime": 11.477947295609601
+    },
+    {
+      "second": 51,
+      "newAlerts": 188,
+      "blockedPackets": 155,
+      "legitimateTraffic": 812,
+      "analysisTime": 10.883876539950204
+    },
+    {
+      "second": 52,
+      "newAlerts": 205,
+      "blockedPackets": 175,
+      "legitimateTraffic": 795,
+      "analysisTime": 6.695688750617361
+    },
+    {
+      "second": 53,
+      "newAlerts": 184,
+      "blockedPackets": 160,
+      "legitimateTraffic": 816,
+      "analysisTime": 9.823416382253845
+    },
+    {
+      "second": 54,
+      "newAlerts": 194,
+      "blockedPackets": 158,
+      "legitimateTraffic": 806,
+      "analysisTime": 7.110527805493339
+    },
+    {
+      "second": 55,
+      "newAlerts": 218,
+      "blockedPackets": 180,
+      "legitimateTraffic": 782,
+      "analysisTime": 14.161666943673525
+    },
+    {
+      "second": 56,
+      "newAlerts": 161,
+      "blockedPackets": 132,
+      "legitimateTraffic": 839,
+      "analysisTime": 8.913216284417551
+    },
+    {
+      "second": 57,
+      "newAlerts": 188,
+      "blockedPackets": 153,
+      "legitimateTraffic": 812,
+      "analysisTime": 12.808959876326467
+    },
+    {
+      "second": 58,
+      "newAlerts": 189,
+      "blockedPackets": 166,
+      "legitimateTraffic": 811,
+      "analysisTime": 13.403927400506522
+    },
+    {
+      "second": 59,
+      "newAlerts": 195,
+      "blockedPackets": 164,
+      "legitimateTraffic": 805,
+      "analysisTime": 11.392767895484194
+    },
+    {
+      "second": 60,
+      "newAlerts": 191,
+      "blockedPackets": 162,
+      "legitimateTraffic": 809,
+      "analysisTime": 7.874347717110613
+    }
+  ]
+}

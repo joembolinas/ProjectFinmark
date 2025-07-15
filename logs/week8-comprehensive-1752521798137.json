@@ -1,0 +1,179 @@
+{
+  "scenario": {
+    "name": "Week 8: 300% Traffic Spike Challenge",
+    "description": "Comprehensive security testing during extreme traffic conditions",
+    "duration": 120,
+    "baseRPS": 200,
+    "spikeMultiplier": 4,
+    "phases": [
+      "preparation",
+      "baseline",
+      "spike",
+      "sustained",
+      "recovery"
+    ]
+  },
+  "startTime": "2025-07-14T19:36:38.141Z",
+  "phases": {
+    "baseline": {
+      "description": "Normal traffic conditions baseline",
+      "duration": 30,
+      "traffic": 200,
+      "metrics": {
+        "loadBalancing": {
+          "totalRequests": 6000,
+          "successfulRequests": 5760,
+          "failedRequests": 240,
+          "successRate": 96,
+          "averageResponseTime": 70,
+          "serversActive": 4
+        },
+        "idps": {
+          "packetsAnalyzed": 6000,
+          "threatsDetected": 120,
+          "attacksBlocked": 96,
+          "threatDetectionRate": 2,
+          "blockingEffectiveness": 80,
+          "falsePositives": 6
+        },
+        "rateLimiting": {
+          "totalRequests": 6000,
+          "allowedRequests": 5100,
+          "rateLimitedRequests": 600,
+          "blockedRequests": 300,
+          "allowedPercentage": 85,
+          "mitigationEffectiveness": 15
+        },
+        "coordination": {
+          "systemThroughput": 5760,
+          "securityEffectiveness": 396,
+          "overallHealth": 63.67,
+          "coordinationStatus": "GOOD"
+        }
+      }
+    },
+    "spike": {
+      "description": "300% traffic spike challenge",
+      "duration": 60,
+      "traffic": 800,
+      "metrics": {
+        "loadBalancing": {
+          "totalRequests": 48000,
+          "successfulRequests": 40800,
+          "failedRequests": 7200,
+          "successRate": 85,
+          "averageResponseTime": 130,
+          "serversActive": 4
+        },
+        "idps": {
+          "packetsAnalyzed": 48000,
+          "threatsDetected": 7200,
+          "attacksBlocked": 5760,
+          "threatDetectionRate": 15,
+          "blockingEffectiveness": 80,
+          "falsePositives": 360
+        },
+        "rateLimiting": {
+          "totalRequests": 48000,
+          "allowedRequests": 33600,
+          "rateLimitedRequests": 9600,
+          "blockedRequests": 4800,
+          "allowedPercentage": 70,
+          "mitigationEffectiveness": 30
+        },
+        "coordination": {
+          "systemThroughput": 40800,
+          "securityEffectiveness": 10560,
+          "overallHealth": 65,
+          "coordinationStatus": "GOOD"
+        }
+      }
+    },
+    "security": {
+      "description": "Security monitoring during sustained high load",
+      "duration": 45,
+      "traffic": 600,
+      "metrics": {
+        "loadBalancing": {
+          "totalRequests": 27000,
+          "successfulRequests": 23760,
+          "failedRequests": 3240,
+          "successRate": 88,
+          "averageResponseTime": 110,
+          "serversActive": 4
+        },
+        "idps": {
+          "packetsAnalyzed": 27000,
+          "threatsDetected": 6750,
+          "attacksBlocked": 5400,
+          "threatDetectionRate": 25,
+          "blockingEffectiveness": 80,
+          "falsePositives": 337
+        },
+        "rateLimiting": {
+          "totalRequests": 27000,
+          "allowedRequests": 18900,
+          "rateLimitedRequests": 5400,
+          "blockedRequests": 2700,
+          "allowedPercentage": 70,
+          "mitigationEffectiveness": 30
+        },
+        "coordination": {
+          "systemThroughput": 23760,
+          "securityEffectiveness": 8100,
+          "overallHealth": 66,
+          "coordinationStatus": "GOOD"
+        }
+      }
+    },
+    "recovery": {
+      "description": "System recovery to normal operations",
+      "duration": 30,
+      "traffic": 300,
+      "metrics": {
+        "loadBalancing": {
+          "totalRequests": 9000,
+          "successfulRequests": 8460,
+          "failedRequests": 540,
+          "successRate": 94,
+          "averageResponseTime": 80,
+          "serversActive": 4
+        },
+        "idps": {
+          "packetsAnalyzed": 9000,
+          "threatsDetected": 450,
+          "attacksBlocked": 360,
+          "threatDetectionRate": 5,
+          "blockingEffectiveness": 80,
+          "falsePositives": 22
+        },
+        "rateLimiting": {
+          "totalRequests": 9000,
+          "allowedRequests": 7650,
+          "rateLimitedRequests": 900,
+          "blockedRequests": 450,
+          "allowedPercentage": 85,
+          "mitigationEffectiveness": 15
+        },
+        "coordination": {
+          "systemThroughput": 8460,
+          "securityEffectiveness": 810,
+          "overallHealth": 63,
+          "coordinationStatus": "GOOD"
+        }
+      }
+    }
+  },
+  "overallMetrics": {
+    "totalDuration": 165,
+    "totalRequests": 90000,
+    "overallSuccessRate": 87.53,
+    "securityEffectiveness": 25.3,
+    "systemResilience": 88.54,
+    "performanceScore": null
+  },
+  "recommendations": [],
+  "milestone2Status": "NEEDS_SIGNIFICANT_IMPROVEMENT",
+  "endTime": "2025-07-14T19:36:54.674Z",
+  "totalDuration": 16.533
+}

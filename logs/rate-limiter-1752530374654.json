@@ -1,0 +1,714 @@
+{
+  "timestamp": "2025-07-14T21:59:38.412Z",
+  "scenario": "Week 8: Rate Limiting During 300% Traffic Spike",
+  "duration": "3.753 seconds",
+  "performance": {
+    "totalRequests": 120000,
+    "allowedRequests": 87190,
+    "rateLimitedRequests": 28,
+    "blockedRequests": 32782,
+    "ddosAttacksDetected": 96,
+    "legitimateTraffic": 87010,
+    "percentages": {
+      "allowed": 72.66,
+      "rateLimited": 0.02,
+      "blocked": 27.32
+    },
+    "requestsPerSecond": 31974,
+    "mitigation_effectiveness": 27.34
+  },
+  "securityStatus": {
+    "currentlyBlockedIPs": 105,
+    "activeConnections": 105,
+    "topBlockedIPs": [
+      {
+        "ip": "203.0.113.ddos",
+        "reason": "DDOS_DETECTED",
+        "blockedAt": 1752530374660
+      },
+      {
+        "ip": "172.16.255.attack",
+        "reason": "DDOS_DETECTED",
+        "blockedAt": 1752530374660
+      },
+      {
+        "ip": "203.0.113.90",
+        "reason": "DDOS_DETECTED",
+        "blockedAt": 1752530374661
+      },
+      {
+        "ip": "203.0.113.100",
+        "reason": "DDOS_DETECTED",
+        "blockedAt": 1752530374661
+      },
+      {
+        "ip": "203.0.113.44",
+        "reason": "DDOS_DETECTED",
+        "blockedAt": 1752530374662
+      },
+      {
+        "ip": "203.0.113.34",
+        "reason": "DDOS_DETECTED",
+        "blockedAt": 1752530374662
+      },
+      {
+        "ip": "192.168.100.666",
+        "reason": "DDOS_DETECTED",
+        "blockedAt": 1752530374662
+      },
+      {
+        "ip": "203.0.113.77",
+        "reason": "DDOS_DETECTED",
+        "blockedAt": 1752530374662
+      },
+      {
+        "ip": "203.0.113.40",
+        "reason": "DDOS_DETECTED",
+        "blockedAt": 1752530374662
+      },
+      {
+        "ip": "203.0.113.68",
+        "reason": "DDOS_DETECTED",
+        "blockedAt": 1752530374663
+      }
+    ],
+    "blockReasons": {
+      "DDOS_DETECTED": 96,
+      "RATE_LIMIT_EXCEEDED": 9
+    }
+  },
+  "ruleEffectiveness": {
+    "perIPRuleTriggered": true,
+    "ddosDetectionTriggered": true,
+    "endpointRulesActive": true,
+    "whitelistingActive": true
+  },
+  "recommendations": [
+    {
+      "priority": "HIGH",
+      "category": "Attack Volume",
+      "issue": "27.318333333333335% of traffic blocked - high attack volume detected",
+      "solution": "Implement additional security layers and consider geo-blocking"
+    },
+    {
+      "priority": "CRITICAL",
+      "category": "DDoS Protection",
+      "issue": "96 DDoS attacks detected",
+      "solution": "Activate enhanced DDoS protection and consider CDN integration"
+    },
+    {
+      "priority": "MEDIUM",
+      "category": "IP Management",
+      "issue": "105 IPs currently blocked",
+      "solution": "Review blocked IP list and implement graduated response policies"
+    }
+  ],
+  "configuration": {
+    "rateLimitRules": {
+      "global": {
+        "requestsPerSecond": 1000,
+        "burstLimit": 1500,
+        "windowSize": 1000
+      },
+      "perIP": {
+        "requestsPerSecond": 50,
+        "burstLimit": 100,
+        "windowSize": 1000,
+        "blockDuration": 300000
+      },
+      "endpoints": {
+        "/api/login": {
+          "requestsPerSecond": 5,
+          "burstLimit": 10,
+          "windowSize": 60000,
+          "blockDuration": 900000
+        },
+        "/api/checkout": {
+          "requestsPerSecond": 20,
+          "burstLimit": 40,
+          "windowSize": 1000
+        },
+        "/api/search": {
+          "requestsPerSecond": 100,
+          "burstLimit": 200,
+          "windowSize": 1000
+        },
+        "/static/*": {
+          "requestsPerSecond": 200,
+          "burstLimit": 500,
+          "windowSize": 1000
+        }
+      },
+      "ddosDetection": {
+        "connectionThreshold": 200,
+        "requestThreshold": 500,
+        "suspiciousPatternThreshold": 100,
+        "autoBlockDuration": 3600000
+      }
+    },
+    "blockedIPsSnapshot": [
+      [
+        "203.0.113.ddos",
+        {
+          "blockedAt": 1752530374660,
+          "expiresAt": 1752533974660,
+          "reason": "DDOS_DETECTED"
+        }
+      ],
+      [
+        "172.16.255.attack",
+        {
+          "blockedAt": 1752530374660,
+          "expiresAt": 1752533974660,
+          "reason": "DDOS_DETECTED"
+        }
+      ],
+      [
+        "203.0.113.90",
+        {
+          "blockedAt": 1752530374661,
+          "expiresAt": 1752533974661,
+          "reason": "DDOS_DETECTED"
+        }
+      ],
+      [
+        "203.0.113.100",
+        {
+          "blockedAt": 1752530374661,
+          "expiresAt": 1752533974661,
+          "reason": "DDOS_DETECTED"
+        }
+      ],
+      [
+        "203.0.113.44",
+        {
+          "blockedAt": 1752530374662,
+          "expiresAt": 1752533974662,
+          "reason": "DDOS_DETECTED"
+        }
+      ],
+      [
+        "203.0.113.34",
+        {
+          "blockedAt": 1752530374662,
+          "expiresAt": 1752533974662,
+          "reason": "DDOS_DETECTED"
+        }
+      ],
+      [
+        "192.168.100.666",
+        {
+          "blockedAt": 1752530374662,
+          "expiresAt": 1752533974662,
+          "reason": "DDOS_DETECTED"
+        }
+      ],
+      [
+        "203.0.113.77",
+        {
+          "blockedAt": 1752530374662,
+          "expiresAt": 1752533974662,
+          "reason": "DDOS_DETECTED"
+        }
+      ],
+      [
+        "203.0.113.40",
+        {
+          "blockedAt": 1752530374662,
+          "expiresAt": 1752533974662,
+          "reason": "DDOS_DETECTED"
+        }
+      ],
+      [
+        "203.0.113.68",
+        {
+          "blockedAt": 1752530374663,
+          "expiresAt": 1752533974663,
+          "reason": "DDOS_DETECTED"
+        }
+      ]
+    ]
+  },
+  "detailedResults": [
+    {
+      "second": 1,
+      "allowed": 1661,
+      "rateLimited": 2,
+      "blocked": 337,
+      "ddosDetected": 48,
+      "processingTime": 2.627549103990291
+    },
+    {
+      "second": 2,
+      "allowed": 1539,
+      "rateLimited": 7,
+      "blocked": 454,
+      "ddosDetected": 21,
+      "processingTime": 6.588206417862187
+    },
+    {
+      "second": 3,
+      "allowed": 1517,
+      "rateLimited": 10,
+      "blocked": 473,
+      "ddosDetected": 12,
+      "processingTime": 3.092814911906671
+    },
+    {
+      "second": 4,
+      "allowed": 1487,
+      "rateLimited": 7,
+      "blocked": 506,
+      "ddosDetected": 7,
+      "processingTime": 2.172440693880774
+    },
+    {
+      "second": 5,
+      "allowed": 1474,
+      "rateLimited": 2,
+      "blocked": 524,
+      "ddosDetected": 4,
+      "processingTime": 3.141758782754443
+    },
+    {
+      "second": 6,
+      "allowed": 1436,
+      "rateLimited": 0,
+      "blocked": 564,
+      "ddosDetected": 2,
+      "processingTime": 4.380065607728731
+    },
+    {
+      "second": 7,
+      "allowed": 1463,
+      "rateLimited": 0,
+      "blocked": 537,
+      "ddosDetected": 1,
+      "processingTime": 2.1872845987443847
+    },
+    {
+      "second": 8,
+      "allowed": 1436,
+      "rateLimited": 0,
+      "blocked": 564,
+      "ddosDetected": 1,
+      "processingTime": 6.5422593509925075
+    },
+    {
+      "second": 9,
+      "allowed": 1437,
+      "rateLimited": 0,
+      "blocked": 563,
+      "ddosDetected": 0,
+      "processingTime": 4.275979940177767
+    },
+    {
+      "second": 10,
+      "allowed": 1440,
+      "rateLimited": 0,
+      "blocked": 560,
+      "ddosDetected": 0,
+      "processingTime": 2.2677959702198454
+    },
+    {
+      "second": 11,
+      "allowed": 1424,
+      "rateLimited": 0,
+      "blocked": 576,
+      "ddosDetected": 0,
+      "processingTime": 4.583784714754382
+    },
+    {
+      "second": 12,
+      "allowed": 1443,
+      "rateLimited": 0,
+      "blocked": 557,
+      "ddosDetected": 0,
+      "processingTime": 3.3261270658272095
+    },
+    {
+      "second": 13,
+      "allowed": 1426,
+      "rateLimited": 0,
+      "blocked": 574,
+      "ddosDetected": 0,
+      "processingTime": 2.010113283182446
+    },
+    {
+      "second": 14,
+      "allowed": 1429,
+      "rateLimited": 0,
+      "blocked": 571,
+      "ddosDetected": 0,
+      "processingTime": 5.50072271133735
+    },
+    {
+      "second": 15,
+      "allowed": 1470,
+      "rateLimited": 0,
+      "blocked": 530,
+      "ddosDetected": 0,
+      "processingTime": 4.547678896801276
+    },
+    {
+      "second": 16,
+      "allowed": 1422,
+      "rateLimited": 0,
+      "blocked": 578,
+      "ddosDetected": 0,
+      "processingTime": 4.236636364326653
+    },
+    {
+      "second": 17,
+      "allowed": 1480,
+      "rateLimited": 0,
+      "blocked": 520,
+      "ddosDetected": 0,
+      "processingTime": 4.869046324842878
+    },
+    {
+      "second": 18,
+      "allowed": 1422,
+      "rateLimited": 0,
+      "blocked": 578,
+      "ddosDetected": 0,
+      "processingTime": 4.7130800674110045
+    },
+    {
+      "second": 19,
+      "allowed": 1426,
+      "rateLimited": 0,
+      "blocked": 574,
+      "ddosDetected": 0,
+      "processingTime": 6.68617152396671
+    },
+    {
+      "second": 20,
+      "allowed": 1446,
+      "rateLimited": 0,
+      "blocked": 554,
+      "ddosDetected": 0,
+      "processingTime": 5.327232039631646
+    },
+    {
+      "second": 21,
+      "allowed": 1469,
+      "rateLimited": 0,
+      "blocked": 531,
+      "ddosDetected": 0,
+      "processingTime": 3.0998016364368035
+    },
+    {
+      "second": 22,
+      "allowed": 1479,
+      "rateLimited": 0,
+      "blocked": 521,
+      "ddosDetected": 0,
+      "processingTime": 5.987115916609254
+    },
+    {
+      "second": 23,
+      "allowed": 1446,
+      "rateLimited": 0,
+      "blocked": 554,
+      "ddosDetected": 0,
+      "processingTime": 6.585486334624998
+    },
+    {
+      "second": 24,
+      "allowed": 1466,
+      "rateLimited": 0,
+      "blocked": 534,
+      "ddosDetected": 0,
+      "processingTime": 6.630792543942066
+    },
+    {
+      "second": 25,
+      "allowed": 1415,
+      "rateLimited": 0,
+      "blocked": 585,
+      "ddosDetected": 0,
+      "processingTime": 3.7145344647349847
+    },
+    {
+      "second": 26,
+      "allowed": 1412,
+      "rateLimited": 0,
+      "blocked": 588,
+      "ddosDetected": 0,
+      "processingTime": 2.8412055364424864
+    },
+    {
+      "second": 27,
+      "allowed": 1480,
+      "rateLimited": 0,
+      "blocked": 520,
+      "ddosDetected": 0,
+      "processingTime": 4.167244110653282
+    },
+    {
+      "second": 28,
+      "allowed": 1459,
+      "rateLimited": 0,
+      "blocked": 541,
+      "ddosDetected": 0,
+      "processingTime": 3.5161401342857417
+    },
+    {
+      "second": 29,
+      "allowed": 1438,
+      "rateLimited": 0,
+      "blocked": 562,
+      "ddosDetected": 0,
+      "processingTime": 5.9407908661532165
+    },
+    {
+      "second": 30,
+      "allowed": 1452,
+      "rateLimited": 0,
+      "blocked": 548,
+      "ddosDetected": 0,
+      "processingTime": 4.59513294407506
+    },
+    {
+      "second": 31,
+      "allowed": 1481,
+      "rateLimited": 0,
+      "blocked": 519,
+      "ddosDetected": 0,
+      "processingTime": 5.910199807398326
+    },
+    {
+      "second": 32,
+      "allowed": 1451,
+      "rateLimited": 0,
+      "blocked": 549,
+      "ddosDetected": 0,
+      "processingTime": 3.024289535848247
+    },
+    {
+      "second": 33,
+      "allowed": 1464,
+      "rateLimited": 0,
+      "blocked": 536,
+      "ddosDetected": 0,
+      "processingTime": 6.101702195385039
+    },
+    {
+      "second": 34,
+      "allowed": 1482,
+      "rateLimited": 0,
+      "blocked": 518,
+      "ddosDetected": 0,
+      "processingTime": 3.1555563950483974
+    },
+    {
+      "second": 35,
+      "allowed": 1432,
+      "rateLimited": 0,
+      "blocked": 568,
+      "ddosDetected": 0,
+      "processingTime": 4.5200639269020995
+    },
+    {
+      "second": 36,
+      "allowed": 1448,
+      "rateLimited": 0,
+      "blocked": 552,
+      "ddosDetected": 0,
+      "processingTime": 3.7799178835637974
+    },
+    {
+      "second": 37,
+      "allowed": 1440,
+      "rateLimited": 0,
+      "blocked": 560,
+      "ddosDetected": 0,
+      "processingTime": 2.951165337855102
+    },
+    {
+      "second": 38,
+      "allowed": 1435,
+      "rateLimited": 0,
+      "blocked": 565,
+      "ddosDetected": 0,
+      "processingTime": 3.012083805565356
+    },
+    {
+      "second": 39,
+      "allowed": 1417,
+      "rateLimited": 0,
+      "blocked": 583,
+      "ddosDetected": 0,
+      "processingTime": 3.5248381926714503
+    },
+    {
+      "second": 40,
+      "allowed": 1448,
+      "rateLimited": 0,
+      "blocked": 552,
+      "ddosDetected": 0,
+      "processingTime": 5.414300841112208
+    },
+    {
+      "second": 41,
+      "allowed": 1461,
+      "rateLimited": 0,
+      "blocked": 539,
+      "ddosDetected": 0,
+      "processingTime": 2.9795672183521233
+    },
+    {
+      "second": 42,
+      "allowed": 1453,
+      "rateLimited": 0,
+      "blocked": 547,
+      "ddosDetected": 0,
+      "processingTime": 2.7844777032995207
+    },
+    {
+      "second": 43,
+      "allowed": 1431,
+      "rateLimited": 0,
+      "blocked": 569,
+      "ddosDetected": 0,
+      "processingTime": 4.030606730094831
+    },
+    {
+      "second": 44,
+      "allowed": 1444,
+      "rateLimited": 0,
+      "blocked": 556,
+      "ddosDetected": 0,
+      "processingTime": 2.9683381953648587
+    },
+    {
+      "second": 45,
+      "allowed": 1440,
+      "rateLimited": 0,
+      "blocked": 560,
+      "ddosDetected": 0,
+      "processingTime": 3.356394067658705
+    },
+    {
+      "second": 46,
+      "allowed": 1463,
+      "rateLimited": 0,
+      "blocked": 537,
+      "ddosDetected": 0,
+      "processingTime": 6.356227189492769
+    },
+    {
+      "second": 47,
+      "allowed": 1459,
+      "rateLimited": 0,
+      "blocked": 541,
+      "ddosDetected": 0,
+      "processingTime": 3.1859372090522036
+    },
+    {
+      "second": 48,
+      "allowed": 1435,
+      "rateLimited": 0,
+      "blocked": 565,
+      "ddosDetected": 0,
+      "processingTime": 3.762254419341761
+    },
+    {
+      "second": 49,
+      "allowed": 1437,
+      "rateLimited": 0,
+      "blocked": 563,
+      "ddosDetected": 0,
+      "processingTime": 4.069703650173845
+    },
+    {
+      "second": 50,
+      "allowed": 1434,
+      "rateLimited": 0,
+      "blocked": 566,
+      "ddosDetected": 0,
+      "processingTime": 2.3048906965958564
+    },
+    {
+      "second": 51,
+      "allowed": 1442,
+      "rateLimited": 0,
+      "blocked": 558,
+      "ddosDetected": 0,
+      "processingTime": 5.862344470558202
+    },
+    {
+      "second": 52,
+      "allowed": 1444,
+      "rateLimited": 0,
+      "blocked": 556,
+      "ddosDetected": 0,
+      "processingTime": 3.6247292010332295
+    },
+    {
+      "second": 53,
+      "allowed": 1444,
+      "rateLimited": 0,
+      "blocked": 556,
+      "ddosDetected": 0,
+      "processingTime": 2.6848897128458753
+    },
+    {
+      "second": 54,
+      "allowed": 1490,
+      "rateLimited": 0,
+      "blocked": 510,
+      "ddosDetected": 0,
+      "processingTime": 3.801369378284873
+    },
+    {
+      "second": 55,
+      "allowed": 1399,
+      "rateLimited": 0,
+      "blocked": 601,
+      "ddosDetected": 0,
+      "processingTime": 3.066658656284968
+    },
+    {
+      "second": 56,
+      "allowed": 1439,
+      "rateLimited": 0,
+      "blocked": 561,
+      "ddosDetected": 0,
+      "processingTime": 4.598066341190396
+    },
+    {
+      "second": 57,
+      "allowed": 1452,
+      "rateLimited": 0,
+      "blocked": 548,
+      "ddosDetected": 0,
+      "processingTime": 3.558996015366562
+    },
+    {
+      "second": 58,
+      "allowed": 1426,
+      "rateLimited": 0,
+      "blocked": 574,
+      "ddosDetected": 0,
+      "processingTime": 5.571036438566723
+    },
+    {
+      "second": 59,
+      "allowed": 1440,
+      "rateLimited": 0,
+      "blocked": 560,
+      "ddosDetected": 0,
+      "processingTime": 5.0741494343011695
+    },
+    {
+      "second": 60,
+      "allowed": 1465,
+      "rateLimited": 0,
+      "blocked": 535,
+      "ddosDetected": 0,
+      "processingTime": 2.271095670274324
+    }
+  ]
+}

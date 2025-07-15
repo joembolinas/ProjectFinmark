@@ -1,0 +1,1794 @@
+{
+  "timestamp": "2025-07-14T19:22:04.113Z",
+  "scenario": "300% Traffic Spike Load Balancing Test",
+  "algorithm": "leastConnections",
+  "duration": "6.487 seconds",
+  "performance": {
+    "totalRequests": 22350,
+    "successfulRequests": 22350,
+    "failedRequests": 0,
+    "successRate": 100,
+    "averageResponseTime": 75,
+    "requestsPerSecond": 3445
+  },
+  "serverConfiguration": [
+    {
+      "id": "web-01",
+      "ip": "10.0.50.10",
+      "port": 443,
+      "maxConnections": 1000,
+      "finalStatus": "healthy"
+    },
+    {
+      "id": "web-02",
+      "ip": "10.0.50.11",
+      "port": 443,
+      "maxConnections": 1000,
+      "finalStatus": "healthy"
+    },
+    {
+      "id": "api-01",
+      "ip": "10.0.40.20",
+      "port": 8080,
+      "maxConnections": 500,
+      "finalStatus": "healthy"
+    },
+    {
+      "id": "api-02",
+      "ip": "10.0.40.21",
+      "port": 8080,
+      "maxConnections": 500,
+      "finalStatus": "healthy"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "INFO",
+      "category": "Success",
+      "issue": "Load balancing configuration performing within acceptable parameters",
+      "solution": "Monitor continued performance and plan for future growth"
+    }
+  ],
+  "detailedResults": [
+    {
+      "second": 1,
+      "rps": 100,
+      "successful": 100,
+      "failed": 0,
+      "avgResponseTime": 63,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 25,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 25,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 25,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 25,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 2,
+      "rps": 130,
+      "successful": 130,
+      "failed": 0,
+      "avgResponseTime": 65,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 33,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 33,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 32,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 32,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 3,
+      "rps": 160,
+      "successful": 160,
+      "failed": 0,
+      "avgResponseTime": 66,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 40,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 40,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 40,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 40,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 4,
+      "rps": 190,
+      "successful": 190,
+      "failed": 0,
+      "avgResponseTime": 67,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 48,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 48,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 47,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 47,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 5,
+      "rps": 220,
+      "successful": 220,
+      "failed": 0,
+      "avgResponseTime": 69,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 55,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 55,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 55,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 55,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 6,
+      "rps": 250,
+      "successful": 250,
+      "failed": 0,
+      "avgResponseTime": 70,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 63,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 63,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 62,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 62,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 7,
+      "rps": 280,
+      "successful": 280,
+      "failed": 0,
+      "avgResponseTime": 71,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 70,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 70,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 70,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 70,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 8,
+      "rps": 310,
+      "successful": 310,
+      "failed": 0,
+      "avgResponseTime": 72,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 78,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 78,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 77,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 77,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 9,
+      "rps": 340,
+      "successful": 340,
+      "failed": 0,
+      "avgResponseTime": 73,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 85,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 85,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 85,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 85,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 10,
+      "rps": 370,
+      "successful": 370,
+      "failed": 0,
+      "avgResponseTime": 74,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 94,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 93,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 93,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 93,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 11,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 102,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 102,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 102,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 12,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 13,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 14,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 102,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 102,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 102,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 102,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 15,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 16,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 17,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 18,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 19,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 20,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 21,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 22,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 23,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 77,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 24,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 77,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 25,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 26,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 27,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 28,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 77,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 29,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 77,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 30,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 31,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 75,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 102,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 32,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 102,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 33,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 77,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 34,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 35,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 77,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 36,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 37,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 38,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 39,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 102,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 102,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 40,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 41,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 42,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 43,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 77,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 44,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 77,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 106,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 106,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 106,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 105,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 45,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 77,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 46,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 77,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 47,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 77,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 48,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 77,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 106,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 105,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 49,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 50,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 51,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 52,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 106,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 106,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 105,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 53,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 75,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 54,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 55,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 56,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 57,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 77,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 58,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 103,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 103,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 59,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 77,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    },
+    {
+      "second": 60,
+      "rps": 400,
+      "successful": 400,
+      "failed": 0,
+      "avgResponseTime": 76,
+      "serverLoads": [
+        {
+          "id": "web-01",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "web-02",
+          "load": 105,
+          "status": "healthy"
+        },
+        {
+          "id": "api-01",
+          "load": 104,
+          "status": "healthy"
+        },
+        {
+          "id": "api-02",
+          "load": 104,
+          "status": "healthy"
+        }
+      ]
+    }
+  ]
+}

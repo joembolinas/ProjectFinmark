@@ -1,0 +1,29 @@
+{
+  "server": {
+    "name": "FinMark-VPN-Server",
+    "port": 1194,
+    "protocol": "udp",
+    "subnet": "10.8.0.0",
+    "netmask": "255.255.255.0"
+  },
+  "clients": [
+    {
+      "name": "finmark-admin",
+      "ip": "10.8.0.10",
+      "created": "2025-07-14T21:53:30.639Z",
+      "status": "active"
+    },
+    {
+      "name": "finmark-user1",
+      "ip": "10.8.0.11",
+      "created": "2025-07-14T21:53:30.640Z",
+      "status": "active"
+    }
+  ],
+  "certificates": {
+    "ca": "./certificates/ca.crt",
+    "server": "./certificates/server.crt",
+    "serverKey": "./certificates/server.key",
+    "dhparam": "./certificates/dh2048.pem"
+  }
+}
